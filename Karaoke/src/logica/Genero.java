@@ -42,5 +42,5 @@ private String imagenGenero;
 	public void setImagenGenero(String imagenGenero) {
 		this.imagenGenero = imagenGenero;
 	}
-
+	
 }

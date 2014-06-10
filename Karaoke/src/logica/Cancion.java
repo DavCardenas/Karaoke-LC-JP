@@ -10,7 +10,14 @@ public class Cancion {
 	private int numeroLineaActual;
 	private String Imagen;
 	
+	
 	public Cancion() {
+		nombre = null;
+		duracion = 0;
+		letra = new ArrayList<>();
+		numeroLineaActual = 0;
+		Imagen = null;
+		
 	}
 
 	public Cancion(String nombre, int duracion, ArrayList<String> letra,
@@ -66,7 +73,15 @@ public class Cancion {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+	public String mostrarLetra() {
+		String linea = letra.get(numeroLineaActual);
+		numeroLineaActual+=1;
+		if (numeroLineaActual == letra.size()) {
+			letra = null;
+		}
+	 return linea;
+	 	
+	}
 	
 
 }
