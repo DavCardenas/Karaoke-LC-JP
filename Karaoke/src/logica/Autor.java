@@ -8,7 +8,12 @@ public class Autor {
 	private ArrayList<Cancion> listaCanciones;
 	private String foto;
 
-
+	/**
+	 * Description
+	 * Esta clase sirve para la organizacion del programa en cuanto aspectos 
+	 * de busqueda
+	 */	
+	
 	public Autor(String nombre, ArrayList<Cancion> listaCanciones, String foto) {
 		super();
 		this.nombre = nombre;
@@ -46,6 +51,6 @@ public class Autor {
 		this.foto = foto;
 	}
 
-
+	
 
 }
