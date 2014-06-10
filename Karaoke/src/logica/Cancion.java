@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Cancion {
 	
 	private String nombre;
-	private int duración;
+	private int duracion;
 	private ArrayList<String> letra;
 	private int numeroLineaActual;
 	private String Imagen;
@@ -13,11 +13,11 @@ public class Cancion {
 	public Cancion() {
 	}
 
-	public Cancion(String nombre, int duración, ArrayList<String> letra,
+	public Cancion(String nombre, int duracion, ArrayList<String> letra,
 			int numeroLineaActual, String imagen) {
 		super();
 		this.nombre = nombre;
-		this.duración = duración;
+		this.duracion = duracion;
 		this.letra = letra;
 		this.numeroLineaActual = numeroLineaActual;
 		Imagen = imagen;
@@ -26,12 +26,12 @@ public class Cancion {
 
 
 
-	public int getDuración() {
-		return duración;
+	public int getDuracion() {
+		return duracion;
 	}
 
-	public void setDuración(int duración) {
-		this.duración = duración;
+	public void setDuracion(int duracion) {
+		this.duracion = duracion;
 	}
 
 	public ArrayList<String> getLetra() {
