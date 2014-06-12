@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class Genero {
 	
+	/**
+	 * Esta clase va  a contener una lista de autores, así como una respectiva imagen de Género y el albúm.
+	 */
+	
 private String nombre;
 private ArrayList<Autor> listaAutores;
 private String imagenGenero;
