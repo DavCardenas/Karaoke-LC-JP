@@ -8,6 +8,7 @@ public class Karaoke {
 	private Cancion cancionActual;
 	
 	public Karaoke() {
+		listaGeneros = new ArrayList<>();
 	}
 
 	public Karaoke(ArrayList<Genero> listaGeneros, Cancion cancionActual) {
@@ -32,6 +33,7 @@ public class Karaoke {
 		this.cancionActual = cancionActual;
 	}
 	
-	
-	
+	public void crearGenero(String nombre,) {
+		listaGeneros.add(new Genero(nombre, listaAutores, imagenGenero))
+	}	
 }
