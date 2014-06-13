@@ -33,7 +33,7 @@ public class Karaoke {
 		this.cancionActual = cancionActual;
 	}
 	
-	public void crearGenero(String nombre,) {
-		listaGeneros.add(new Genero(nombre, listaAutores, imagenGenero))
+	public void crearGenero(String nombre) {
+		
 	}	
 }
