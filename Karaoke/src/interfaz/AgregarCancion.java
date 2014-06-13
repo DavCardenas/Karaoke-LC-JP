@@ -17,7 +17,7 @@ public class AgregarCancion extends JDialog{
 	
 	public final static String ACEPTAR_CANCION = "ACEPTAR_CANCION";
 	
-	public AgregarCancion(Karaoke karaoke, ManejadorDeEventos deEventos) {
+	public AgregarCancion(KaraokePrincipal karaoke, ManejadorDeEventos deEventos) {
 		
 		setSize(300,170);
 		setTitle("Agregar Cancion");

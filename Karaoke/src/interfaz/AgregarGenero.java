@@ -15,7 +15,7 @@ public class AgregarGenero extends JDialog{
 	
 	public final static String ACEPTAR = "ACEPTAR";
 	
-	public AgregarGenero(Karaoke karaoke, ManejadorDeEventos deEventos) {
+	public AgregarGenero(KaraokePrincipal karaoke, ManejadorDeEventos deEventos) {
 		
 		setSize(300,170);
 		setTitle("Agregar Genero");

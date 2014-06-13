@@ -1,11 +1,12 @@
 package ejecucion;
 
-import interfaz.Karaoke;
+
+import interfaz.KaraokePrincipal;
 
 public class TestKaraoke {
 
 	public static void main(String[] args) {
-		Karaoke karaoke = new Karaoke();
+		KaraokePrincipal karaoke = new KaraokePrincipal();
 		karaoke.setVisible(true);
 	}
 
