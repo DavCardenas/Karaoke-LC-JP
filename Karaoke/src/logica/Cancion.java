@@ -32,13 +32,12 @@ public class Cancion {
 		
 	}
 
-	public Cancion(String nombre, int duracion, ArrayList<String> letra,
-			int numeroLineaActual, String imagen) {
+	public Cancion(String nombre, int duracion,String imagen) {
 		super();
 		this.nombre = nombre;
 		this.duracion = duracion;
-		this.letra = letra;
-		this.numeroLineaActual = numeroLineaActual;
+		this.letra = null;
+		this.numeroLineaActual = 0;
 		Imagen = imagen;
 	}
 
