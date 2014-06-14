@@ -100,8 +100,8 @@ public class Cancion {
 	/**
 	 * El metodo nos trae el archivo plano cargado en la persistencia, y lo almacenamos en el arrayList
 	 */
-	public void abrircancion(){
-		letra = archivoPlano.leerArchivoLetra("");
+	public void abrircancion(String ruta){
+		letra = archivoPlano.leerArchivoLetra(ruta);
 	}
 	
 	
