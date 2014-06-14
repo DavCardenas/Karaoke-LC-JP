@@ -18,9 +18,11 @@ public class AgregarGenero extends JDialog{
 	private JLabel jLabel;
 	private JTextField txtNombreGenero;
 	private JButton buttonAceptar;
+	private JButton subirImagen;
 	private JLabel foto;
 	
 	public final static String ACEPTAR = "ACEPTAR";
+	public final static String SUBIR_IMAGEN_GENERO = "SUBIR_IMAGEN_GENERO";
 	
 	public AgregarGenero(KaraokePrincipal karaoke, ManejadorDeEventos deEventos) {
 		
@@ -41,7 +43,7 @@ public class AgregarGenero extends JDialog{
 		add(jLabel, gbc);
 		
 		txtNombreGenero = new JTextField();
-		gbc = new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 130, 0);
+		gbc = new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 130, 0);
 		add(txtNombreGenero, gbc);
 		
 		
@@ -49,10 +51,16 @@ public class AgregarGenero extends JDialog{
 		gbc = new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(foto, gbc);
 		
+		subirImagen = new JButton("Subir Imagen");
+		subirImagen.setActionCommand(SUBIR_IMAGEN_GENERO);
+		subirImagen.addActionListener(deEventos);
+		gbc = new GridBagConstraints(0, 4, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		add(subirImagen, gbc);
+		
 		buttonAceptar = new JButton("Aceptar");
 		buttonAceptar.setActionCommand(ACEPTAR);
 		buttonAceptar.addActionListener(deEventos);
-		gbc = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(0, 5, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(buttonAceptar, gbc);
 		
 		
