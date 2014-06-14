@@ -5,9 +5,24 @@ import java.awt.event.ActionListener;
 
 public class ManejadorDeEventos implements ActionListener{
 
+	private KaraokePrincipal karaoke;
+	
+	public ManejadorDeEventos(KaraokePrincipal pkaraoke) {
+		this.karaoke = pkaraoke;
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		String comando = e.getActionCommand();
+		
+		switch (comando) {
+		case KaraokePrincipal.COMANDO_BOTON_AGREGAR_CANCION:
+			karaoke.agregarCancion();
+			break;
+
+		default:
+			break;
+		}
 		
 	}
 

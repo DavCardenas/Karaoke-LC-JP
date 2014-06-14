@@ -23,6 +23,7 @@ public class KaraokePrincipal extends JFrame{
 	private JButton btnAgregarAutor;
 	private JButton btnEliminarAutor;
 	private ManejadorDeEventos eventos;
+	private AgregarCancion agregarCancion;
 	
 	public static final String COMANDO_BOTON_AGREGAR_CANCION = "AGREGAR_CANCION";
 	public static final String COMANDO_BOTON_ELIMINAR_CANCION = "ELIMINAR_CANCION";
@@ -40,13 +41,13 @@ public class KaraokePrincipal extends JFrame{
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
 		
-		eventos = new ManejadorDeEventos();
+		eventos = new ManejadorDeEventos(this);
 		lKaraoke = new Karaoke();
 		//PANEL GENERO
 		generos = new PanelGeneros();
 		
 		
-		
+		agregarCancion = new AgregarCancion(this, eventos);
 		
 		
 		//T O L B A R 
@@ -119,6 +120,10 @@ public class KaraokePrincipal extends JFrame{
 
 	public void actulizarListas() {
 		generos.actualizarLista(lKaraoke.getListaGeneros());
+	}
+	
+	public void agregarCancion() {
+		agregarCancion.setVisible(true);
 	}
 
 }
