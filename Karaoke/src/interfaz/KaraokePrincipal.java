@@ -1,19 +1,26 @@
 package interfaz;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JToolBar;
 
 
+
+
+
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import logica.Genero;
 import logica.Karaoke;
 public class KaraokePrincipal extends JFrame{
 
-	private PanelGeneros generos;
+	
 	private Karaoke lKaraoke;
 	private JToolBar toolBar;
 	private JButton btnAgregarCancion;
@@ -23,7 +30,9 @@ public class KaraokePrincipal extends JFrame{
 	private JButton btnAgregarAutor;
 	private JButton btnEliminarAutor;
 	private ManejadorDeEventos eventos;
+	private PanelGeneros generos;
 	private AgregarCancion agregarCancion;
+	private AgregarGenero agregarGenero;
 	
 	public static final String COMANDO_BOTON_AGREGAR_CANCION = "AGREGAR_CANCION";
 	public static final String COMANDO_BOTON_ELIMINAR_CANCION = "ELIMINAR_CANCION";
@@ -41,6 +50,24 @@ public class KaraokePrincipal extends JFrame{
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
 		
+		Font fuenteLabels = new Font("Arial", Font.BOLD, 20);
+		
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		eventos = new ManejadorDeEventos(this);
 		lKaraoke = new Karaoke();
 		//PANEL GENERO
@@ -48,7 +75,7 @@ public class KaraokePrincipal extends JFrame{
 		
 		
 		agregarCancion = new AgregarCancion(this, eventos);
-		
+		agregarGenero = new AgregarGenero(this, eventos);
 		
 		//T O L B A R 
 		toolBar = new JToolBar(("Menu de registro"));
@@ -75,28 +102,28 @@ public class KaraokePrincipal extends JFrame{
 		btnAgregarGenero.setIcon(new ImageIcon(getClass().getResource("/Img/AddGenero.png")));
 		btnAgregarGenero.setFocusable(false);
 		btnAgregarGenero.addActionListener(eventos);
-		btnAgregarGenero.setActionCommand(COMANDO_BOTON_AGREGAR_AUTOR);
+		btnAgregarGenero.setActionCommand(COMANDO_BOTON_AGREGAR_GENERO);
 		btnAgregarGenero.setToolTipText("Agregar Genero");
 
 		btnEliminarGenero = new JButton();
 		btnEliminarGenero.setIcon(new ImageIcon(getClass().getResource("/Img/DeleteGenero.png")));
 		btnEliminarGenero.setFocusable(false);
 		btnEliminarGenero.addActionListener(eventos);
-		btnEliminarGenero.setActionCommand(COMANDO_BOTON_ELIMINAR_AUTOR);
+		btnEliminarGenero.setActionCommand(COMANDO_BOTON_ELIMINAR_GENERO);
 		btnEliminarGenero.setToolTipText("Eliminar Genero");
 
 		btnAgregarAutor = new JButton();
 		btnAgregarAutor.setIcon(new ImageIcon(getClass().getResource("/Img/AddArtist.png")));
 		btnAgregarAutor.setFocusable(false);
 		btnAgregarAutor.addActionListener(eventos);
-		btnAgregarAutor.setActionCommand(COMANDO_BOTON_AGREGAR_GENERO);
+		btnAgregarAutor.setActionCommand(COMANDO_BOTON_AGREGAR_AUTOR);
 		btnAgregarAutor.setToolTipText("Agregar Autor");
 		
 		btnEliminarAutor = new JButton();
 		btnEliminarAutor.setIcon(new ImageIcon(getClass().getResource("/Img/DeleteArtist.png")));
 		btnEliminarAutor.setFocusable(false);
 		btnEliminarAutor.addActionListener(eventos);
-		btnEliminarAutor.setActionCommand(COMANDO_BOTON_ELIMINAR_GENERO);
+		btnEliminarAutor.setActionCommand(COMANDO_BOTON_ELIMINAR_AUTOR);
 		btnEliminarAutor.setToolTipText("Eliminar Autor");
 
 		toolBar.add(btnAgregarCancion);
@@ -124,6 +151,10 @@ public class KaraokePrincipal extends JFrame{
 	
 	public void agregarCancion() {
 		agregarCancion.setVisible(true);
+	}
+	
+	public void agregarGenero() {
+		agregarGenero.setVisible(true);
 	}
 
 }

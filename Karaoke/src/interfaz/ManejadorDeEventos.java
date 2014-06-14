@@ -19,7 +19,9 @@ public class ManejadorDeEventos implements ActionListener{
 		case KaraokePrincipal.COMANDO_BOTON_AGREGAR_CANCION:
 			karaoke.agregarCancion();
 			break;
-
+		case KaraokePrincipal.COMANDO_BOTON_AGREGAR_GENERO:
+			karaoke.agregarGenero();
+			break;
 		default:
 			break;
 		}
