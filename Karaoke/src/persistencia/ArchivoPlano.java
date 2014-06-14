@@ -23,7 +23,7 @@ public class ArchivoPlano {
 	
 	//Este metodo se utiliza para leer un archivo plano y retornar un 
 	//ArrayList con la letra de la cancion seleccionada
-	public ArrayList<String> abrirArchivo() throws IOException {
+	/*public ArrayList<String> abrirArchivo() throws IOException {
 		ArrayList<String> letra = new ArrayList<>();
 		JFileChooser jf = new JFileChooser();
 		jf.showOpenDialog(null);
@@ -43,6 +43,60 @@ public class ArchivoPlano {
 		bufferedReader.close();
 		
 		return letra;
+	}*/
+	
+	public ArrayList<String> leerArchivoLetra(String ruta) {
+		file = new File(ruta);
+		fileReader = null;
+		
+		ArrayList<String> letra = new ArrayList<String>();
+
+		try {
+			fileReader = new FileReader(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		BufferedReader bufferedReader = new BufferedReader(fileReader);
+		String linea = null;
+		try {
+			while ((linea = bufferedReader.readLine()) != null) {
+				letra.add(linea);
+			}
+			return letra;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			fileReader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public void crearArchivoLetra(String letra, String ruta) {
+		file = new File(ruta);
+		FileWriter fileWriter = null;
+
+		try {
+			fileWriter = new FileWriter(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			fileWriter.write(letra);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			fileWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

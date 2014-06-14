@@ -151,8 +151,6 @@ public class KaraokePrincipal extends JFrame{
 		toolBar.addSeparator();
 		toolBar.add(btnEliminarGenero);
 		
-
-		
 		
 		add(generos, BorderLayout.WEST);
 		add(artista, BorderLayout.CENTER);
