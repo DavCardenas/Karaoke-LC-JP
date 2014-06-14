@@ -38,6 +38,8 @@ public class AgregarCancion extends JDialog{
 		gridbag = new GridBagLayout();
 		GridBagConstraints gbc;
 		
+		setIconImage(new ImageIcon(getClass().getResource("/img/AddSong.png")).getImage());
+		
 		setLayout(gridbag);
 		setLocationRelativeTo(karaoke);
 		
