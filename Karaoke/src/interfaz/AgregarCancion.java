@@ -27,7 +27,7 @@ public class AgregarCancion extends JDialog{
 	
 	public AgregarCancion(KaraokePrincipal karaoke, ManejadorDeEventos deEventos) {
 		
-		setSize(300,500);
+		setSize(500,500);
 		setTitle("Agregar Cancion");
 		setModal(true);
 
@@ -39,23 +39,23 @@ public class AgregarCancion extends JDialog{
 		setLocationRelativeTo(karaoke);
 		
 		LbNombreCancion = new JLabel("Nombre Canción");
-		gbc = new GridBagConstraints(0, 0, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(LbNombreCancion, gbc);
 		
 		txtNombreCancion = new JTextField();
-		gbc = new GridBagConstraints(0, 1, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
+		gbc = new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
 		add(txtNombreCancion, gbc);
 		
 		LbDuracion = new JLabel("Duración");
-		gbc = new GridBagConstraints(0, 2, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(LbDuracion, gbc);
 		
 		txtDuracion = new JTextField();
-		gbc = new GridBagConstraints(0, 3, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
+		gbc = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
 		add(txtDuracion, gbc);
 		
 		area = new JTextArea();
-		gbc = new GridBagConstraints(0, 4, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), getWidth(), 200);
+		gbc = new GridBagConstraints(0, 4, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 400, 200);
 		add(area, gbc);
 		
 		buttonAceptar = new JButton("Aceptar");
