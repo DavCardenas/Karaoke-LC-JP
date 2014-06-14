@@ -9,6 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class AgregarCancion extends JDialog{
@@ -20,6 +21,7 @@ public class AgregarCancion extends JDialog{
 	private JTextField txtNombreCancion;
 	private JTextField txtDuracion;
 	private JButton buttonAceptar;
+	private JTextArea area;
 	
 	public final static String ACEPTAR_CANCION = "ACEPTAR_CANCION";
 	
@@ -36,25 +38,25 @@ public class AgregarCancion extends JDialog{
 		setLayout(gridbag);
 		setLocationRelativeTo(karaoke);
 		
-		jLabelDatos = new JLabel("Datos Cancion");
-		gbc = new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
-		add(jLabelDatos, gbc);
-		
 		LbNombreCancion = new JLabel("Nombre Canción");
-		gbc = new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(0, 0, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(LbNombreCancion, gbc);
 		
 		txtNombreCancion = new JTextField();
-		gbc = new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
+		gbc = new GridBagConstraints(0, 1, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
 		add(txtNombreCancion, gbc);
 		
 		LbDuracion = new JLabel("Duración");
-		gbc = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(0, 2, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(LbDuracion, gbc);
 		
 		txtDuracion = new JTextField();
-		gbc = new GridBagConstraints(0, 4, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
+		gbc = new GridBagConstraints(0, 3, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
 		add(txtDuracion, gbc);
+		
+		area = new JTextArea();
+		gbc = new GridBagConstraints(0, 4, 1, 1, 1, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), getWidth(), 200);
+		add(area, gbc);
 		
 		buttonAceptar = new JButton("Aceptar");
 		buttonAceptar.setActionCommand(ACEPTAR_CANCION);
