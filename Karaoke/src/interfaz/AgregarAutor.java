@@ -49,7 +49,7 @@ public class AgregarAutor extends JDialog {
 		add(lbNombre, gbc);
 		
 		txNombre = new JTextField();
-		gbc = new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
+		gbc = new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
 		add(txNombre, gbc);
 		
 		lbGenero = new JLabel("Genero musical");
@@ -58,7 +58,7 @@ public class AgregarAutor extends JDialog {
 		
 		modeloGeneros = new DefaultComboBoxModel();
 		cbxGeneros = new JComboBox<Genero>(modeloGeneros);
-		gbc = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
+		gbc = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
 		add(cbxGeneros, gbc);
 		
 		lbFoto = new JLabel(new ImageIcon(getClass().getResource("/Img/logo.png")));

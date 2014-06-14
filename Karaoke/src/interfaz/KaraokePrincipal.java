@@ -32,6 +32,7 @@ public class KaraokePrincipal extends JFrame{
 	private JButton btnEliminarAutor;
 	private ManejadorDeEventos eventos;
 	private PanelGeneros generos;
+	private PanelArtista artista;
 	private AgregarCancion agregarCancion;
 	private AgregarGenero agregarGenero;
 	private AgregarAutor agregarAutor;
@@ -80,6 +81,7 @@ public class KaraokePrincipal extends JFrame{
 		lKaraoke = new Karaoke();
 		//PANEL GENERO
 		generos = new PanelGeneros();
+		artista = new PanelArtista();
 		
 		
 		agregarCancion = new AgregarCancion(this, eventos);
@@ -151,6 +153,7 @@ public class KaraokePrincipal extends JFrame{
 		
 		
 		add(generos, BorderLayout.WEST);
+		add(artista, BorderLayout.CENTER);
 		add(toolBar,BorderLayout.NORTH);
 	}
 
