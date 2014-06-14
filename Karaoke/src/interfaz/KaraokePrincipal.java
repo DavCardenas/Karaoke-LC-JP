@@ -13,6 +13,7 @@ import javax.swing.JToolBar;
 
 
 
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -40,6 +41,7 @@ public class KaraokePrincipal extends JFrame{
 	public static final String COMANDO_BOTON_ELIMINAR_AUTOR = "ELIMINAR_AUTOR";
 	public static final String COMANDO_BOTON_AGREGAR_GENERO = "AGREGAR_GENERO";
 	public static final String COMANDO_BOTON_ELIMINAR_GENERO = "ELIMINAR_GENERO";
+	
 	public KaraokePrincipal() {
 
 		
@@ -50,8 +52,13 @@ public class KaraokePrincipal extends JFrame{
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
 		
-		Font fuenteLabels = new Font("Arial", Font.BOLD, 20);
+		UIManager . put ( "Label.font" ,  UIManager . getFont ( "Label.font" ). deriveFont ( (float) 17.0 )); 
+		SwingUtilities . updateComponentTreeUI ( this );
 		
+		/*
+		 * Este codigo cambia la aparencia de todos los componentes graficos
+		 * del programa 
+		 */
 		try {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
 		} catch (ClassNotFoundException e) {
