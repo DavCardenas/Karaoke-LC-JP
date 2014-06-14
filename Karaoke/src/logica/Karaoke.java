@@ -43,7 +43,8 @@ public class Karaoke implements Serializable{
 		
 	}
 	
-	public void crearCancion(String pNombre, int duracion, String rutaImagen) {
+	public void crearCancion(String pNombre, int duracion, String rutaImagen, String pletra) {
 		cancionActual = new Cancion(pNombre, duracion, rutaImagen);
+		cancionActual.crearCancion(pletra, "./archivos/"+pNombre + ".txt");
 	}
 }

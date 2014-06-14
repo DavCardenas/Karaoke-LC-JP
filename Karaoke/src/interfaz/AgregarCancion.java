@@ -80,4 +80,30 @@ public class AgregarCancion extends JDialog{
 		add(buttonAceptar, gbc);
 		
 	}
+
+	public JTextField getTxtNombreCancion() {
+		return txtNombreCancion;
+	}
+
+	public void setTxtNombreCancion(JTextField txtNombreCancion) {
+		this.txtNombreCancion = txtNombreCancion;
+	}
+
+	public JTextField getTxtDuracion() {
+		return txtDuracion;
+	}
+
+	public void setTxtDuracion(JTextField txtDuracion) {
+		this.txtDuracion = txtDuracion;
+	}
+
+	public JTextArea getArea() {
+		return area;
+	}
+
+	public void setArea(JTextArea area) {
+		this.area = area;
+	}
+	
+	
 }

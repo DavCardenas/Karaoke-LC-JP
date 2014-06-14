@@ -13,6 +13,7 @@ public class ArchivoPlano {
 	
 	private File file;
 	private FileReader fileReader;
+	private FileWriter fileWriter;
 	private BufferedReader bufferedReader;
 	
 	/**
@@ -78,8 +79,6 @@ public class ArchivoPlano {
 	
 	public void crearArchivoLetra(String letra, String ruta) {
 		file = new File(ruta);
-		FileWriter fileWriter = null;
-
 		try {
 			fileWriter = new FileWriter(file);
 		} catch (IOException e) {

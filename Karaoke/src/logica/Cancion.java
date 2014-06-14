@@ -104,6 +104,9 @@ public class Cancion {
 		letra = archivoPlano.leerArchivoLetra(ruta);
 	}
 	
+	public void crearCancion(String pletra, String pruta) {
+		archivoPlano.crearArchivoLetra(pletra, pruta);
+	}
 	
 
 }
