@@ -157,44 +157,30 @@ public class KaraokePrincipal extends JFrame {
 		add(cancion, BorderLayout.EAST);
 		add(toolBar, BorderLayout.NORTH);
 	}
-	
-	
 
 	public AgregarCancion getAgregarCancion() {
 		return agregarCancion;
 	}
 
-
-
 	public void setAgregarCancion(AgregarCancion agregarCancion) {
 		this.agregarCancion = agregarCancion;
 	}
-
-
 
 	public AgregarGenero getAgregarGenero() {
 		return agregarGenero;
 	}
 
-
-
 	public void setAgregarGenero(AgregarGenero agregarGenero) {
 		this.agregarGenero = agregarGenero;
 	}
-
-
 
 	public AgregarAutor getAgregarAutor() {
 		return agregarAutor;
 	}
 
-
-
 	public void setAgregarAutor(AgregarAutor agregarAutor) {
 		this.agregarAutor = agregarAutor;
 	}
-
-
 
 	public void actulizarListas() {
 		generos.actualizarLista(lKaraoke.getListaGeneros());
@@ -210,6 +196,10 @@ public class KaraokePrincipal extends JFrame {
 
 	public void agregarAutor() {
 		agregarAutor.setVisible(true);
+	}
+	
+	public void actualizarListaGeneros() {
+		generos.actualizarLista(agregarGenero.getGeneros());
 	}
 
 	public void enviarDatosCancion() {

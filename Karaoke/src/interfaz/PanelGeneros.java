@@ -21,12 +21,14 @@ public class PanelGeneros extends JPanel{
 		
 		defaultListModel = new DefaultListModel<>();
 		jList = new JList<>(defaultListModel);
+		
+		add(jList);
 	}
 	
 	public void actualizarLista(ArrayList<Genero> listaActulizada) {
 		defaultListModel.removeAllElements();
-		for (Genero seleccion : listaActulizada) {
-			defaultListModel.addElement(seleccion.getNombre());
+		for (Genero genero : listaActulizada) {
+			defaultListModel.addElement(genero.getNombre());
 		}
 		jList.setModel(defaultListModel);
 	}

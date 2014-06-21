@@ -33,6 +33,7 @@ public class ManejadorDeEventos implements ActionListener{
 			break;
 		case AgregarGenero.ACEPTAR:
 			karaoke.getAgregarGenero().agregarGenero();
+			karaoke.actualizarListaGeneros();
 			break;
 			
 		default:
