@@ -311,7 +311,9 @@ public class AgregarCancion extends JDialog implements ItemListener{
 	public void itemStateChanged(ItemEvent e) {
 		if (e.getSource() == cbxGeneros) {
 			int id = cbxGeneros.getSelectedIndex();
-			actualizarComboBoxartistas(generos.get(id).getListaAutores());
+			if (cbxGeneros.getSelectedIndex() >= 0) {
+				actualizarComboBoxartistas(generos.get(id).getListaAutores());
+			}
 		}
 	}
 }

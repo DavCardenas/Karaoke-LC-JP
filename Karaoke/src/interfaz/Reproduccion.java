@@ -83,6 +83,8 @@ public class Reproduccion extends JDialog implements ItemListener{
 		cbxGeneros.addItemListener(this);
 		cbxArtistas.addItemListener(this);
 		cbxCanciones.addItemListener(this);
+		
+		this.generos = genero;
 	}
 	
 	public void actualizarComboBoxartistas(ArrayList<Autor> listaArtistas) {
@@ -108,13 +110,16 @@ public class Reproduccion extends JDialog implements ItemListener{
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-		int idG = cbxGeneros.getSelectedIndex();
 		if (e.getSource() == cbxGeneros) {
 			int idGG = cbxGeneros.getSelectedIndex();
-			actualizarComboBoxartistas(generos.get(idGG).getListaAutores());
+			if (idGG >= 0) {
+				actualizarComboBoxartistas(generos.get(idGG).getListaAutores());
+			}
 		}else if (e.getSource() ==  cbxArtistas) {
 			int id = cbxArtistas.getSelectedIndex();
-			actualizarComboBoxCanciones(generos.get(idG).getListaAutores().get(id).getListaCanciones());
+			if (id >= 0) {
+				actualizarComboBoxCanciones(generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(id).getListaCanciones());
+			}
 		}
 	}
 	
