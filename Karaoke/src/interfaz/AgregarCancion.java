@@ -6,6 +6,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.ScrollPane;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -26,7 +28,7 @@ import javax.swing.border.TitledBorder;
 import logica.Autor;
 import logica.Genero;
 
-public class AgregarCancion extends JDialog{
+public class AgregarCancion extends JDialog implements ItemListener{
 
 	private JLabel jLabelDatos;
 	private JLabel LbNombreCancion;
@@ -43,13 +45,14 @@ public class AgregarCancion extends JDialog{
 	private DefaultComboBoxModel modeloAutores;
 	private JComboBox<Autor> cbxAutores;
 	private JLabel foto;
+	private ArrayList<Genero> generos;
 	
 	
 	
 	public final static String ACEPTAR_CANCION = "ACEPTAR_CANCION";
 	public final static String SUBIR_IMAGEN = "SUBIR_IMAGEN";
 	
-	public AgregarCancion(KaraokePrincipal karaoke, ManejadorDeEventos deEventos) {
+	public AgregarCancion(KaraokePrincipal karaoke, ManejadorDeEventos deEventos, ArrayList<Genero> Lgeneros) {
 		
 		setSize(750,550);
 		setTitle("Agregar Cancion");
@@ -124,8 +127,9 @@ public class AgregarCancion extends JDialog{
 		gbc = new GridBagConstraints(2, 11, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(buttonAceptar, gbc);
 		
-
+		cbxGeneros.addItemListener(this);
 		
+		generos = Lgeneros;
 	}
 
 	public void setCbxAutores(JComboBox<Autor> cbxAutores) {
@@ -181,6 +185,7 @@ public class AgregarCancion extends JDialog{
 			modeloGeneros.addElement(genero.getNombre());
 		}
 	}
+	
 	public void vaciarCamposCancion() {
 		txtDuracion.setText("");
 		txtNombreCancion.setText("");
@@ -188,5 +193,13 @@ public class AgregarCancion extends JDialog{
 		cbxAutores.setSelectedIndex(0);
 		cbxGeneros.setSelectedIndex(0);
 		
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		if (e.getSource() == cbxGeneros) {
+			int id = cbxGeneros.getSelectedIndex();
+			actualizarComboBoxartistas(generos.get(id).getListaAutores());
+		}
 	}
 }
