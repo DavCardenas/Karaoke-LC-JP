@@ -119,13 +119,18 @@ public class AgregarAutor extends JDialog {
 	}
 
 	public void agregarAutor() {
-		if (!buscarRepetido() && !camposVacios()) {
-			autor = new Autor(txNombre.getText(), imagenUrl);
-			autores.add(autor);
-			generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().add(autor);
+		if (!camposVacios()) {
+			if (!buscarRepetido()) {
+				autor = new Autor(txNombre.getText(), imagenUrl);
+				autores.add(autor);
+				generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().add(autor);
+			}else {
+				JOptionPane.showMessageDialog(null, "El artista se encuentra registrado");
+			}
 		}else {
-			JOptionPane.showMessageDialog(null, "El artista ya est� registrado");
+			JOptionPane.showMessageDialog(null, "Ingresa los datos");
 		}
+		
 	}
 	public void actualizarImagen(String imagen) {
 		try
