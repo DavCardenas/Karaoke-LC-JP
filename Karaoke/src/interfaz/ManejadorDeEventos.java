@@ -38,6 +38,9 @@ public class ManejadorDeEventos implements ActionListener{
 		case AgregarAutor.ACEPTAR_AGREGAR_AUTOR:
 			karaoke.getAgregarAutor().agregarAutor();
 			karaoke.actualizarListasArtistas();
+			
+		case AgregarAutor.SUBIR_IMAGEN_AUTOR:
+			karaoke.getAgregarAutor().seleccionarArchivo();
 		default:
 			break;
 		}
