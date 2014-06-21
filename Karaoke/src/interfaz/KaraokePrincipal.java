@@ -80,7 +80,7 @@ public class KaraokePrincipal extends JFrame {
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
 		setResizable(false);
-
+		setIconImage(new ImageIcon(getClass().getResource("/Img/nota.png")).getImage());
 
 
 		UIManager.put("Label.font",	UIManager.getFont("Label.font").deriveFont((float) 16.0));
