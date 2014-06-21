@@ -236,8 +236,6 @@ public class AgregarCancion extends JDialog implements ItemListener{
 				if (opcion == jf.APPROVE_OPTION) {
 					String ruta = jf.getSelectedFile().getPath();
 					cancionC = new Cancion(txtNombreCancion.getText(), Integer.parseInt(txtDuracion.getText()), ruta);
-
-					
 				}
 				canciones.add(cancionC);
 				generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxAutores.getSelectedIndex()).getListaCanciones().add(cancionC);
