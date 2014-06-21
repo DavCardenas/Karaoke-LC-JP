@@ -28,6 +28,12 @@ public class ManejadorDeEventos implements ActionListener{
 		case AgregarCancion.ACEPTAR_CANCION:
 			karaoke.enviarDatosCancion();
 			break;
+		case AgregarGenero.SUBIR_IMAGEN_GENERO:
+			karaoke.getAgregarGenero().seleccionarArchivo();
+			break;
+		case AgregarGenero.ACEPTAR:
+			karaoke.getAgregarGenero().agregarGenero();
+			break;
 			
 		default:
 			break;

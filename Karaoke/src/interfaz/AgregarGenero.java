@@ -76,11 +76,44 @@ public class AgregarGenero extends JDialog{
 		buttonAceptar.addActionListener(deEventos);
 		gbc = new GridBagConstraints(0, 5, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(buttonAceptar, gbc);
+		
+		generos = new ArrayList<>();
+	}
+	
+	public void setGeneros(ArrayList<Genero> generos) {
+		this.generos = generos;
+	}
+	
+	public ArrayList<Genero> getGeneros() {
+		return generos;
+	}
+	
+	public boolean camposVacios() {
+		boolean vacios = false;
+		if (txtNombreGenero.getText().isEmpty()) {
+			vacios = true;
+		}
+		return vacios;
+	}
+	
+	public boolean buscarRepetido() {
+		boolean repetido = false;
+		for (Genero genero : generos) {
+			if (txtNombreGenero.getText().equals(genero.getNombre())) {
+				repetido = true;
+			}
+		}
+		return repetido;
 	}
 	
 	public void agregarGenero() {
-		genero = new Genero(txtNombreGenero.getText(), imagenUrl);
-		generos.add(genero);
+		if (!buscarRepetido() && !camposVacios()) {
+			genero = new Genero(txtNombreGenero.getText(), imagenUrl);
+			generos.add(genero);
+		}else {
+			JOptionPane.showMessageDialog(null, "El genero ya esta");
+		}
+		
 	}
 	
 	public void actualizarImagen(String imagen) {
