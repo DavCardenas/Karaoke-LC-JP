@@ -29,6 +29,7 @@ public class ManejadorDeEventos implements ActionListener{
 			break;
 		case AgregarCancion.ACEPTAR_CANCION:
 			karaoke.enviarDatosCancion();
+			karaoke.getAgregarCancion().vaciarCamposCancion();
 			break;
 		case AgregarGenero.SUBIR_IMAGEN_GENERO:
 			karaoke.getAgregarGenero().seleccionarArchivo();
@@ -41,6 +42,7 @@ public class ManejadorDeEventos implements ActionListener{
 		case AgregarAutor.ACEPTAR_AGREGAR_AUTOR:
 			karaoke.getAgregarAutor().agregarAutor();
 			karaoke.actualizarListasArtistas();
+			karaoke.getAgregarAutor().vaciarCamposAutor();
 			break;
 		case AgregarAutor.SUBIR_IMAGEN_AUTOR:
 			karaoke.getAgregarAutor().seleccionarArchivo();

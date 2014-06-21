@@ -183,4 +183,9 @@ public class AgregarAutor extends JDialog {
 			modeloGeneros.addElement(genero.getNombre());
 		}
 	}
+	public void vaciarCamposAutor() {
+		txNombre.setText("");
+		cbxGeneros.setSelectedIndex(0);
+				
+	}
 }

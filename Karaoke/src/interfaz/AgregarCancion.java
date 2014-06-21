@@ -181,4 +181,11 @@ public class AgregarCancion extends JDialog{
 			modeloGeneros.addElement(genero.getNombre());
 		}
 	}
+	public void vaciarCamposCancion() {
+		txtDuracion.setText("");
+		txtNombreCancion.setText("");
+		cbxAutores.setSelectedIndex(0);
+		cbxGeneros.setSelectedIndex(0);
+		
+	}
 }
