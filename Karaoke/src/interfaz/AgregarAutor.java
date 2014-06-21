@@ -132,7 +132,7 @@ public class AgregarAutor extends JDialog {
 		{
 			remove( lbFoto );
 			lbFoto = new JLabel( new ImageIcon( cargarImagen( imagen ) ) );
-			GridBagConstraints gbc = new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+			GridBagConstraints gbc = new GridBagConstraints(0, 5, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 			add( lbFoto, gbc );
 			//refresca el Jlabel con el UpdateUI();
 			lbFoto.updateUI();
