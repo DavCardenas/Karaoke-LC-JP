@@ -72,9 +72,10 @@ public class AgregarCancion extends JDialog implements ItemListener{
 	
 	public AgregarCancion(KaraokePrincipal karaoke, ManejadorDeEventos deEventos, ArrayList<Genero> Lgeneros, Karaoke lKaraoke) {
 		
-		setSize(750,550);
+		setSize(800,460);
 		setTitle("Agregar Cancion");
 		setModal(true);
+		setResizable(false);
 
 		GridBagLayout gridbag;
 		gridbag = new GridBagLayout();
@@ -86,63 +87,63 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		setLocationRelativeTo(karaoke);
 		
 		LbNombreCancion = new JLabel("Nombre Canción");
-		gbc = new GridBagConstraints(2, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(LbNombreCancion, gbc);
 		
 		txtNombreCancion = new JTextField();
-		gbc = new GridBagConstraints(2, 1, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
+		gbc = new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 176, 0);
 		add(txtNombreCancion, gbc);
 		
 		LbDuracion = new JLabel("Duración");
-		gbc = new GridBagConstraints(2, 2, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(LbDuracion, gbc);
 		
 		txtDuracion = new JTextField();
-		gbc = new GridBagConstraints(2, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
+		gbc = new GridBagConstraints(1, 1, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 176, 0);
 		add(txtDuracion, gbc);
 		
-		area = new JTextArea(7,30);
-		area.setMinimumSize(new Dimension(300, 70));
-		area.setMaximumSize(new Dimension(300, 70));
+		area = new JTextArea("Letra", 10, 40);
+		area.setMinimumSize(new Dimension(400, 150));
+		area.setMaximumSize(new Dimension(400, 150));
 		area.setLineWrap(true);
 		area.setWrapStyleWord(true);
 		
 		
-		gbc = new GridBagConstraints(2, 4, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(2, 0, 1, 4, 2, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(area, gbc);
 		
 		lbGenero = new JLabel("Genero musical");
-		gbc = new GridBagConstraints(1, 5, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(lbGenero, gbc);
 		
 		modeloGeneros = new DefaultComboBoxModel();
 		cbxGeneros = new JComboBox<>(modeloGeneros);
-		gbc = new GridBagConstraints(1, 6, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
+		gbc = new GridBagConstraints(1, 2, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
 		add(cbxGeneros, gbc);
 		
 		lbAutores = new JLabel("Autores");
-		gbc = new GridBagConstraints(3, 5, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(		lbAutores, gbc);
 		
 		modeloAutores = new DefaultComboBoxModel();
 		cbxAutores = new JComboBox<String>(modeloAutores);
-		gbc = new GridBagConstraints(3, 6, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
+		gbc = new GridBagConstraints(1, 3, 1, 1, 0, 0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 155, 0);
 		add(cbxAutores, gbc);
 		
 		foto = new JLabel(new ImageIcon(getClass().getResource("/Img/logo.png")));
-		gbc = new GridBagConstraints(2, 9, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(0, 4, 3, 1, 3, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(foto, gbc);
 		
 		cargarImagen = new JButton("Subir Imagen");
 		cargarImagen.setActionCommand(SUBIR_IMAGEN);
 		cargarImagen.addActionListener(deEventos);
-		gbc = new GridBagConstraints(2, 10, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(0, 5, 3, 1, 3, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(cargarImagen, gbc);
 		
 		buttonAceptar = new JButton("Aceptar");
 		buttonAceptar.setActionCommand(ACEPTAR_CANCION);
 		buttonAceptar.addActionListener(deEventos);
-		gbc = new GridBagConstraints(2, 11, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+		gbc = new GridBagConstraints(0, 6, 3, 1, 3, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(buttonAceptar, gbc);
 		
 		cbxGeneros.addItemListener(this);
