@@ -333,6 +333,17 @@ public class KaraokePrincipal extends JFrame {
 		}
 
 	}
+	
+	public void reproducir() {
+		if (!agregarGenero.getGeneros().isEmpty()) {
+			reproduccion.actualizarComboBoxGeneros(agregarGenero.getGeneros());
+			reproduccion.actualizarComboBoxartistas(agregarGenero.getGeneros().get(0).getListaAutores());
+			reproduccion.actualizarComboBoxCanciones(agregarGenero.getGeneros().get(0).getListaAutores().get(0).getListaCanciones());
+			reproduccion.setVisible(true);
+		}else {
+			JOptionPane.showMessageDialog(this, "Agregue un genero y un autor como minimo");
+		}
+	}
 
 	public void agregarGenero() {
 		agregarGenero.setVisible(true);
@@ -343,9 +354,7 @@ public class KaraokePrincipal extends JFrame {
 		agregarAutor.setVisible(true);
 	}
 	
-	public void reproducir() {
-		reproduccion.setVisible(true);
-	}
+	
 	
 	public void  actualizarListasArtistas() {
 		artista.actualizarLista(agregarAutor.getAutores());

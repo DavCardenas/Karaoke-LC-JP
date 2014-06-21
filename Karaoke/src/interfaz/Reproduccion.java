@@ -3,6 +3,8 @@ package interfaz;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
@@ -12,9 +14,11 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
+import logica.Autor;
+import logica.Cancion;
 import logica.Genero;
 
-public class Reproduccion extends JDialog{
+public class Reproduccion extends JDialog implements ItemListener{
 
 	private JLabel lbGenero;
 	private JLabel lbArtista;
@@ -75,5 +79,44 @@ public class Reproduccion extends JDialog{
 		reproducir.addActionListener(manejador);
 		gbc = new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(reproducir, gbc);
+		
+		cbxGeneros.addItemListener(this);
+		cbxArtistas.addItemListener(this);
+		cbxCanciones.addItemListener(this);
 	}
+	
+	public void actualizarComboBoxartistas(ArrayList<Autor> listaArtistas) {
+		modeloArtista.removeAllElements();
+		for (Autor autores: listaArtistas) {
+			modeloArtista.addElement(autores.getNombre());
+		}
+	}
+	
+	public void actualizarComboBoxGeneros(ArrayList<Genero> ListaGeneros) {
+		modeloGenero.removeAllElements();
+		for (Genero genero: ListaGeneros) {
+			modeloGenero.addElement(genero.getNombre());
+		}
+	}
+	
+	public void actualizarComboBoxCanciones(ArrayList<Cancion> ListaCanciones) {
+		modeloCancion.removeAllElements();
+		for (Cancion cancion: ListaCanciones) {
+			modeloCancion.addElement(cancion.getNombre());
+		}
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		int idG = cbxGeneros.getSelectedIndex();
+		if (e.getSource() == cbxGeneros) {
+			int idGG = cbxGeneros.getSelectedIndex();
+			actualizarComboBoxartistas(generos.get(idGG).getListaAutores());
+		}else if (e.getSource() ==  cbxArtistas) {
+			int id = cbxArtistas.getSelectedIndex();
+			actualizarComboBoxCanciones(generos.get(idG).getListaAutores().get(id).getListaCanciones());
+		}
+	}
+	
+	
 }
