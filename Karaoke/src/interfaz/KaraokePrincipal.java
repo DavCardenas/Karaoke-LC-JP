@@ -79,6 +79,7 @@ public class KaraokePrincipal extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
+		setResizable(false);
 
 
 

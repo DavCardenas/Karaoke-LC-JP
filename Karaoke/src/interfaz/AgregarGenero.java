@@ -44,6 +44,7 @@ public class AgregarGenero extends JDialog{
 		setTitle("Agregar Genero");
 		setLocationRelativeTo(karaoke);
 		setModal(true);
+		setResizable(false);
 		setIconImage(new ImageIcon(getClass().getResource("/img/AddGenero.png")).getImage());		
 		
 		GridBagLayout gridBag;

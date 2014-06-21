@@ -46,6 +46,7 @@ public class AgregarAutor extends JDialog {
 		setSize(500,500);
 		setTitle("Agregar Autor");
 		setModal(true);
+		setResizable(false);
 
 		GridBagLayout gridbag;
 		gridbag = new GridBagLayout();
