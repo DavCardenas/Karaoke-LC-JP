@@ -3,6 +3,7 @@ package interfaz;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import logica.Karaoke;
 
 public class ManejadorDeEventos implements ActionListener{
@@ -31,6 +32,9 @@ public class ManejadorDeEventos implements ActionListener{
 			karaoke.getAgregarCancion().CrearCancion();
 			karaoke.actualizarListaCanciones();
 			karaoke.getAgregarCancion().vaciarCamposCancion();
+			break;
+		case KaraokePrincipal.COMANDO_SALIR:
+			System.exit(0);
 			break;
 		case AgregarGenero.SUBIR_IMAGEN_GENERO:
 			karaoke.getAgregarGenero().seleccionarArchivo();
