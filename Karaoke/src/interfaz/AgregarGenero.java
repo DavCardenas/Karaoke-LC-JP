@@ -111,9 +111,11 @@ public class AgregarGenero extends JDialog{
 			if (!buscarRepetido()) {
 				genero = new Genero(txtNombreGenero.getText(), imagenUrl);
 				generos.add(genero);
+			}else {
+				JOptionPane.showMessageDialog(null, "El genero ya esta");
 			}
 		}else {
-			JOptionPane.showMessageDialog(null, "El genero ya esta");
+			JOptionPane.showMessageDialog(null, "Campos vacios");
 		}
 		
 	}
