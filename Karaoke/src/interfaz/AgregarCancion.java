@@ -39,6 +39,11 @@ import logica.Karaoke;
 
 public class AgregarCancion extends JDialog implements ItemListener{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JLabel jLabelDatos;
 	private JLabel LbNombreCancion;
 	private JLabel LbDuracion;
@@ -48,11 +53,11 @@ public class AgregarCancion extends JDialog implements ItemListener{
 	private JButton buttonAceptar;
 	private JTextArea area;
 	private JLabel lbGenero;
-	private DefaultComboBoxModel modeloGeneros;
-	private JComboBox<Genero> cbxGeneros;
+	private DefaultComboBoxModel<String> modeloGeneros;
+	private JComboBox<String> cbxGeneros;
 	private JLabel lbAutores;
-	private DefaultComboBoxModel modeloAutores;
-	private JComboBox<Autor> cbxAutores;
+	private DefaultComboBoxModel<String> modeloAutores;
+	private JComboBox<String> cbxAutores;
 	private JLabel foto;
 	private ArrayList<Genero> generos;
 	private ArrayList<Cancion>canciones;
@@ -111,7 +116,7 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		add(lbGenero, gbc);
 		
 		modeloGeneros = new DefaultComboBoxModel();
-		cbxGeneros = new JComboBox<Genero>(modeloGeneros);
+		cbxGeneros = new JComboBox<>(modeloGeneros);
 		gbc = new GridBagConstraints(1, 6, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
 		add(cbxGeneros, gbc);
 		
@@ -120,7 +125,7 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		add(		lbAutores, gbc);
 		
 		modeloAutores = new DefaultComboBoxModel();
-		cbxAutores = new JComboBox<Autor>(modeloAutores);
+		cbxAutores = new JComboBox<String>(modeloAutores);
 		gbc = new GridBagConstraints(3, 6, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 150, 0);
 		add(cbxAutores, gbc);
 		
@@ -155,19 +160,19 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		this.canciones = canciones;
 	}
 
-	public void setCbxAutores(JComboBox<Autor> cbxAutores) {
+	public void setCbxAutores(JComboBox<String> cbxAutores) {
 		this.cbxAutores = cbxAutores;
 	}
 	
-	public JComboBox<Autor> getCbxAutores() {
+	public JComboBox<String> getCbxAutores() {
 		return cbxAutores;
 	}
 	
-	public JComboBox<Genero> getCbxGeneros() {
+	public JComboBox<String> getCbxGeneros() {
 		return cbxGeneros;
 	}
 	
-	public void setCbxGeneros(JComboBox<Genero> cbxGeneros) {
+	public void setCbxGeneros(JComboBox<String> cbxGeneros) {
 		this.cbxGeneros = cbxGeneros;
 	}
 	

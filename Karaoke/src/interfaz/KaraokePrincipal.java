@@ -1,12 +1,10 @@
 package interfaz;
 
 import java.awt.BorderLayout;
-import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -19,11 +17,15 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import logica.Genero;
 import logica.Karaoke;
 
 public class KaraokePrincipal extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Karaoke lKaraoke;
 	private JToolBar toolBar;
 	private JButton btnAgregarCancion;
@@ -40,6 +42,7 @@ public class KaraokePrincipal extends JFrame {
 	private AgregarCancion agregarCancion;
 	private AgregarGenero agregarGenero;
 	private AgregarAutor agregarAutor;
+	private Reproduccion reproduccion;
 	private JPanel contenedorListas;
 	private JMenuBar menuBar;
 	private JMenu menuArchivo;
@@ -56,6 +59,7 @@ public class KaraokePrincipal extends JFrame {
 	private JMenuItem itemEliminarGenero;
 	private JMenu menuAyuda;
 	private JMenuItem itemAbout;
+	
 
 	public static final String COMANDO_BOTON_AGREGAR_CANCION = "AGREGAR_CANCION";
 	public static final String COMANDO_BOTON_ELIMINAR_CANCION = "ELIMINAR_CANCION";
@@ -114,6 +118,7 @@ public class KaraokePrincipal extends JFrame {
 		agregarGenero = new AgregarGenero(this, eventos);
 		agregarAutor = new AgregarAutor(this, eventos, agregarGenero.getGeneros());
 		agregarCancion = new AgregarCancion(this, eventos, agregarGenero.getGeneros(), lKaraoke);
+		reproduccion = new Reproduccion(this, eventos, agregarGenero.getGeneros());
 
 		// T O L B A R
 		toolBar = new JToolBar(("Menu de registro"));
@@ -233,7 +238,7 @@ public class KaraokePrincipal extends JFrame {
 		itemAbout.addActionListener(eventos);
 		itemAbout.setActionCommand(COMANDO_ABOUT);
 
-		//AÑADIR ITEMS A MENUS
+		//Aï¿½ADIR ITEMS A MENUS
 
 		//Archivo
 		menuArchivo.add(itemSalir);
@@ -285,6 +290,7 @@ public class KaraokePrincipal extends JFrame {
 		add(contenedorListas, BorderLayout.CENTER);
 
 	}
+	
 
 	public AgregarCancion getAgregarCancion() {
 		return agregarCancion;
@@ -329,6 +335,11 @@ public class KaraokePrincipal extends JFrame {
 		agregarAutor.actualizarComboBoxGeneros(agregarGenero.getGeneros());
 		agregarAutor.setVisible(true);
 	}
+	
+	public void reproducir() {
+		reproduccion.setVisible(true);
+	}
+	
 	public void  actualizarListasArtistas() {
 		artista.actualizarLista(agregarAutor.getAutores());
 	}

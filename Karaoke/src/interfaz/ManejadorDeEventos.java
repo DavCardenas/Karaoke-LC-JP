@@ -51,8 +51,13 @@ public class ManejadorDeEventos implements ActionListener{
 			break;
 		case AgregarAutor.SUBIR_IMAGEN_AUTOR:
 			karaoke.getAgregarAutor().seleccionarArchivo();
+			break;
 		case AgregarCancion.SUBIR_IMAGEN:
 			karaoke.getAgregarCancion().seleccionarArchivo();
+			break;
+		case KaraokePrincipal.COMANDO_BOTON_PLAY:
+			karaoke.reproducir();
+			break;
 		default:
 			break;
 		}
