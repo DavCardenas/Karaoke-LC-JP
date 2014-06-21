@@ -182,10 +182,6 @@ public class KaraokePrincipal extends JFrame {
 		this.agregarAutor = agregarAutor;
 	}
 
-	public void actulizarListas() {
-		generos.actualizarLista(lKaraoke.getListaGeneros());
-	}
-
 	public void agregarCancion() {
 		agregarCancion.setVisible(true);
 	}
@@ -195,12 +191,17 @@ public class KaraokePrincipal extends JFrame {
 	}
 
 	public void agregarAutor() {
+		agregarAutor.actualizarComboBoxGeneros(agregarGenero.getGeneros());
 		agregarAutor.setVisible(true);
+	}
+	public void  actualizarListasArtistas() {
+		artista.actualizarLista(agregarAutor.getAutores());
 	}
 	
 	public void actualizarListaGeneros() {
 		generos.actualizarLista(agregarGenero.getGeneros());
 	}
+	
 
 	public void enviarDatosCancion() {
 		JFileChooser jf = new JFileChooser("./src/archivos/");

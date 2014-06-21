@@ -1,12 +1,13 @@
 package logica;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Autor {
 
 	private String nombre;
 	private ArrayList<Cancion> listaCanciones;
-	private String foto;
+	private URL foto;
 
 	/**
 	 * Description
@@ -14,17 +15,17 @@ public class Autor {
 	 * de busqueda
 	 */	
 	
-	public Autor(String nombre, ArrayList<Cancion> listaCanciones, String foto) {
+	public Autor(String nombre, URL foto) {
 		super();
 		this.nombre = nombre;
-		this.listaCanciones = listaCanciones;
 		this.foto = foto;
+		listaCanciones = new ArrayList<>();
 	}
 
 	public Autor() {
 		nombre = "";
 		listaCanciones = null;
-		foto = "";
+		foto = null;
 	}
 
 	public String getNombre() {
@@ -43,11 +44,11 @@ public class Autor {
 		this.listaCanciones = listaCanciones;
 	}
 	
-	public String getFoto() {
+	public URL getFoto() {
 		return foto;
 	}
 	
-	public void setFoto(String foto) {
+	public void setFoto(URL foto) {
 		this.foto = foto;
 	}
 

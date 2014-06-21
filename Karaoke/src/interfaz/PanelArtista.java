@@ -7,6 +7,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
+import logica.Autor;
 import logica.Genero;
 
 public class PanelArtista extends JPanel{
@@ -20,12 +21,14 @@ public class PanelArtista extends JPanel{
 		
 		defaultListModel = new DefaultListModel<>();
 		jList = new JList<>(defaultListModel);
+		
+		add(jList);
 	}
 	
-	public void actualizarLista(ArrayList<Genero> listaActulizada) {
+	public void actualizarLista(ArrayList<Autor> listaActulizada) {
 		defaultListModel.removeAllElements();
-		for (Genero seleccion : listaActulizada) {
-			defaultListModel.addElement(seleccion.getNombre());
+		for (Autor autores : listaActulizada) {
+			defaultListModel.addElement(autores.getNombre());
 		}
 		jList.setModel(defaultListModel);
 	}

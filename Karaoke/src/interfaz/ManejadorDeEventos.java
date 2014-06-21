@@ -35,7 +35,9 @@ public class ManejadorDeEventos implements ActionListener{
 			karaoke.getAgregarGenero().agregarGenero();
 			karaoke.actualizarListaGeneros();
 			break;
-			
+		case AgregarAutor.ACEPTAR_AGREGAR_AUTOR:
+			karaoke.getAgregarAutor().agregarAutor();
+			karaoke.actualizarListasArtistas();
 		default:
 			break;
 		}
