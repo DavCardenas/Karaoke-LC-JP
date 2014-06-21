@@ -5,13 +5,23 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+
+import logica.Genero;
 
 public class AgregarGenero extends JDialog{
 
@@ -20,6 +30,10 @@ public class AgregarGenero extends JDialog{
 	private JButton buttonAceptar;
 	private JButton subirImagen;
 	private JLabel foto;
+	private ArrayList<Genero> generos;
+	private Genero genero;
+	private URL imagenUrl;
+	
 	
 	public final static String ACEPTAR = "ACEPTAR";
 	public final static String SUBIR_IMAGEN_GENERO = "SUBIR_IMAGEN_GENERO";
@@ -62,8 +76,57 @@ public class AgregarGenero extends JDialog{
 		buttonAceptar.addActionListener(deEventos);
 		gbc = new GridBagConstraints(0, 5, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(buttonAceptar, gbc);
-		
-		
+	}
+	
+	public void agregarGenero() {
+		genero = new Genero(txtNombreGenero.getText(), imagenUrl);
+		generos.add(genero);
+	}
+	
+	public void actualizarImagen(String imagen) {
+		try
+        {
+            remove( foto );
+            foto = new JLabel( new ImageIcon( cargarImagen( imagen ) ) );
+            GridBagConstraints gbc = new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+            add( foto, gbc );
+            //refresca el Jlabel con el UpdateUI();
+            foto.updateUI();
+        }
+        catch( IOException e )
+        {
+            JOptionPane.showMessageDialog( this, "La imagen no se pudo cargar: " + e.getMessage( ) );
+            e.printStackTrace( );
+        }
+	}
+	
+	private byte[] cargarImagen( String imagen ) throws IOException
+    {
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream( );
+        FileInputStream fin = new FileInputStream( imagen );
+        int data = 0;
+        while( data != -1 )
+        {
+            data = fin.read( );
+            baos.write( data );
+        }
+
+        return baos.toByteArray( );
+    }
+	
+	public void seleccionarArchivo() {
+		JFileChooser jf = new JFileChooser("./src/Img/");
+		int opcion = jf.showOpenDialog(null);
+		if (opcion == JFileChooser.APPROVE_OPTION) {
+			String url = jf.getSelectedFile().getPath();
+			try {
+				imagenUrl = new URL("File:///"+url);
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+			this.actualizarImagen(url);		
+		}
 	}
 	
 }

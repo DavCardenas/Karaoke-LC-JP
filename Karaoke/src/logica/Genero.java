@@ -1,26 +1,29 @@
 package logica;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Genero {
 	
 	/**
-	 * Esta clase va  a contener una lista de autores, así como una respectiva imagen de Género y el albúm.
+	 * Esta clase va  a contener una lista de autores, asï¿½ como una respectiva imagen de Gï¿½nero y el albï¿½m.
 	 */
 	
 private String nombre;
 private ArrayList<Autor> listaAutores;
-private String imagenGenero;
+private URL imagenGenero;
 
 	public Genero() {
+		nombre = "";
+		listaAutores = new ArrayList<>();
+		imagenGenero = null;
 	}
 
-	public Genero(String nombre, ArrayList<Autor> listaAutores,
-			String imagenGenero) {
+	public Genero(String nombre,URL imagenGenero) {
 		super();
 		this.nombre = nombre;
-		this.listaAutores = listaAutores;
 		this.imagenGenero = imagenGenero;
+		listaAutores = new ArrayList<>();
 	}
 
 	public String getNombre() {
@@ -39,11 +42,11 @@ private String imagenGenero;
 		this.listaAutores = listaAutores;
 	}
 
-	public String getImagenGenero() {
+	public URL getImagenGenero() {
 		return imagenGenero;
 	}
 
-	public void setImagenGenero(String imagenGenero) {
+	public void setImagenGenero(URL imagenGenero) {
 		this.imagenGenero = imagenGenero;
 	}
 	
