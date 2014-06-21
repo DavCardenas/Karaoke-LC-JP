@@ -3,6 +3,8 @@ package interfaz;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import logica.Karaoke;
+
 public class ManejadorDeEventos implements ActionListener{
 
 	private KaraokePrincipal karaoke;
@@ -34,6 +36,7 @@ public class ManejadorDeEventos implements ActionListener{
 		case AgregarGenero.ACEPTAR:
 			karaoke.getAgregarGenero().agregarGenero();
 			karaoke.actualizarListaGeneros();
+			karaoke.getAgregarGenero().actulizarCampos();
 			break;
 		case AgregarAutor.ACEPTAR_AGREGAR_AUTOR:
 			karaoke.getAgregarAutor().agregarAutor();

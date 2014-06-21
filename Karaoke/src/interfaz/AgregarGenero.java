@@ -166,4 +166,7 @@ public class AgregarGenero extends JDialog{
 		}
 	}
 	
+	public void actulizarCampos() {
+		txtNombreGenero.setText("");
+	}
 }

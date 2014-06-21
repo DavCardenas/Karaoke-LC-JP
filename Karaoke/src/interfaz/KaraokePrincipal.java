@@ -55,7 +55,7 @@ public class KaraokePrincipal extends JFrame {
 		
 		
 
-		UIManager.put("Label.font",	UIManager.getFont("Label.font").deriveFont((float) 17.0));
+		UIManager.put("Label.font",	UIManager.getFont("Label.font").deriveFont((float) 16.0));
 		SwingUtilities.updateComponentTreeUI(this);
 
 		/*
