@@ -2,12 +2,14 @@ package interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -33,6 +35,7 @@ public class KaraokePrincipal extends JFrame {
 	private AgregarCancion agregarCancion;
 	private AgregarGenero agregarGenero;
 	private AgregarAutor agregarAutor;
+	private JPanel contenedorListas;
 
 	public static final String COMANDO_BOTON_AGREGAR_CANCION = "AGREGAR_CANCION";
 	public static final String COMANDO_BOTON_ELIMINAR_CANCION = "ELIMINAR_CANCION";
@@ -78,6 +81,8 @@ public class KaraokePrincipal extends JFrame {
 		eventos = new ManejadorDeEventos(this);
 		lKaraoke = new Karaoke();
 		// PANELES
+		contenedorListas = new JPanel();
+		contenedorListas.setLayout(new GridLayout(1,3));
 		generos = new PanelGeneros();
 		artista = new PanelArtista();
 		cancion = new PanelCancion();
@@ -152,10 +157,12 @@ public class KaraokePrincipal extends JFrame {
 		toolBar.addSeparator();
 		toolBar.add(btnEliminarGenero);
 
-		add(generos, BorderLayout.WEST);
-		add(artista, BorderLayout.CENTER);
-		add(cancion, BorderLayout.EAST);
 		add(toolBar, BorderLayout.NORTH);
+		contenedorListas.add(generos);
+		contenedorListas.add(artista);
+		contenedorListas.add(cancion);
+		add(contenedorListas, BorderLayout.CENTER);
+		
 	}
 
 	public AgregarCancion getAgregarCancion() {
