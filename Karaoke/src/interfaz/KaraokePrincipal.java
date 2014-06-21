@@ -190,6 +190,9 @@ public class KaraokePrincipal extends JFrame {
 	}
 
 	public void agregarCancion() {
+		//int id = agregarCancion.getCbxGeneros().getSelectedIndex();
+		agregarCancion.actualizarComboBoxGeneros(agregarGenero.getGeneros());
+		agregarCancion.actualizarComboBoxartistas(agregarGenero.getGeneros().get(0).getListaAutores());
 		agregarCancion.setVisible(true);
 	}
 

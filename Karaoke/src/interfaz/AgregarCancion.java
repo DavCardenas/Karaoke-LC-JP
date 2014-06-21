@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.ScrollPane;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
@@ -127,6 +128,22 @@ public class AgregarCancion extends JDialog{
 		
 	}
 
+	public void setCbxAutores(JComboBox<Autor> cbxAutores) {
+		this.cbxAutores = cbxAutores;
+	}
+	
+	public JComboBox<Autor> getCbxAutores() {
+		return cbxAutores;
+	}
+	
+	public JComboBox<Genero> getCbxGeneros() {
+		return cbxGeneros;
+	}
+	
+	public void setCbxGeneros(JComboBox<Genero> cbxGeneros) {
+		this.cbxGeneros = cbxGeneros;
+	}
+	
 	public JTextField getTxtNombreCancion() {
 		return txtNombreCancion;
 	}
@@ -151,5 +168,17 @@ public class AgregarCancion extends JDialog{
 		this.area = area;
 	}
 	
+	public void actualizarComboBoxartistas(ArrayList<Autor> listaArtistas) {
+		modeloAutores.removeAllElements();
+		for (Autor autores: listaArtistas) {
+			modeloAutores.addElement(autores.getNombre());
+		}
+	}
 	
+	public void actualizarComboBoxGeneros(ArrayList<Genero> ListaGeneros) {
+		modeloGeneros.removeAllElements();
+		for (Genero genero: ListaGeneros) {
+			modeloGeneros.addElement(genero.getNombre());
+		}
+	}
 }
