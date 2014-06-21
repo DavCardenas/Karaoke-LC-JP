@@ -184,6 +184,7 @@ public class AgregarCancion extends JDialog{
 	public void vaciarCamposCancion() {
 		txtDuracion.setText("");
 		txtNombreCancion.setText("");
+		area.setText("");
 		cbxAutores.setSelectedIndex(0);
 		cbxGeneros.setSelectedIndex(0);
 		
