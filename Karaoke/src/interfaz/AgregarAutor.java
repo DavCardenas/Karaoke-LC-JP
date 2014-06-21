@@ -35,12 +35,13 @@ public class AgregarAutor extends JDialog {
 	private JButton btnSubirFoto;
 	private URL imagenUrl;
 	private ArrayList<Autor> autores;
+	private ArrayList<Genero> generos;
 	private Autor autor;
 
 	public final static String SUBIR_IMAGEN_AUTOR = "SUBIR_IMAGEN_AUTOR";
 	public final static String ACEPTAR_AGREGAR_AUTOR = "ACEPTAR_AUTOR";
 
-	public AgregarAutor(KaraokePrincipal karaokePrincipal, ManejadorDeEventos eventos) {
+	public AgregarAutor(KaraokePrincipal karaokePrincipal, ManejadorDeEventos eventos,ArrayList<Genero> ListaGeneros) {
 
 		setSize(500,500);
 		setTitle("Agregar Autor");
@@ -90,7 +91,7 @@ public class AgregarAutor extends JDialog {
 		add(btnAgregarAutor, gbc);
 
 		autores = new ArrayList<>();
-
+		generos = ListaGeneros;
 	}
 
 	public ArrayList<Autor> getAutores() {
@@ -121,10 +122,10 @@ public class AgregarAutor extends JDialog {
 		if (!buscarRepetido() && !camposVacios()) {
 			autor = new Autor(txNombre.getText(), imagenUrl);
 			autores.add(autor);
+			generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().add(autor);
 		}else {
-			JOptionPane.showMessageDialog(null, "El artista ya está registrado");
+			JOptionPane.showMessageDialog(null, "El artista ya estï¿½ registrado");
 		}
-
 	}
 	public void actualizarImagen(String imagen) {
 		try

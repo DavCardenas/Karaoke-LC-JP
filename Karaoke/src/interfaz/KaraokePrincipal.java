@@ -84,7 +84,7 @@ public class KaraokePrincipal extends JFrame {
 
 		agregarCancion = new AgregarCancion(this, eventos);
 		agregarGenero = new AgregarGenero(this, eventos);
-		agregarAutor = new AgregarAutor(this, eventos);
+		agregarAutor = new AgregarAutor(this, eventos, agregarGenero.getGeneros());
 
 		// T O L B A R
 		toolBar = new JToolBar(("Menu de registro"));
