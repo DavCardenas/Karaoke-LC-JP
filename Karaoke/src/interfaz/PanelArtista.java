@@ -20,6 +20,8 @@ public class PanelArtista extends JPanel{
 	private JList<String> jList;
 	private DefaultListModel<String > defaultListModel;
 	private JScrollPane jScrollPaneS;
+	
+	
 	public PanelArtista() {
 		
 		setPreferredSize(new Dimension(333, getHeight()));

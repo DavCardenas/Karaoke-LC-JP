@@ -25,6 +25,7 @@ public class PanelCancion extends JPanel{
 	public PanelCancion() {
 		
 		setPreferredSize(new Dimension(333, getHeight()));
+		setLayout(new BorderLayout());
 		
 		defaultListModel = new DefaultListModel<>();
 		jList = new JList<>(defaultListModel);

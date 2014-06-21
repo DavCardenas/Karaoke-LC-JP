@@ -26,6 +26,7 @@ public class PanelGeneros extends JPanel{
 	public PanelGeneros() {
 		
 		setPreferredSize(new Dimension(333, getHeight()));
+		setLayout(new BorderLayout());
 		
 		defaultListModel = new DefaultListModel<>();
 		jList = new JList<>(defaultListModel);
