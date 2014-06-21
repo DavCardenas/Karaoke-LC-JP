@@ -91,7 +91,7 @@ public class KaraokePrincipal extends JFrame {
 		
 		agregarGenero = new AgregarGenero(this, eventos);
 		agregarAutor = new AgregarAutor(this, eventos, agregarGenero.getGeneros());
-		agregarCancion = new AgregarCancion(this, eventos, agregarGenero.getGeneros());
+		agregarCancion = new AgregarCancion(this, eventos, agregarGenero.getGeneros(), lKaraoke);
 
 		// T O L B A R
 		toolBar = new JToolBar(("Menu de registro"));
@@ -217,18 +217,9 @@ public class KaraokePrincipal extends JFrame {
 	public void actualizarListaGeneros() {
 		generos.actualizarLista(agregarGenero.getGeneros());
 	}
-	
-
-	public void enviarDatosCancion() {
-		JFileChooser jf = new JFileChooser("./src/archivos/");
-		int opcion = jf.showSaveDialog(this);
-		if (opcion == jf.APPROVE_OPTION) {
-			String ruta = jf.getSelectedFile().getPath();
-			lKaraoke.crearCancion(agregarCancion.getTxtNombreCancion().getText(),
-					Integer.parseInt(agregarCancion.getTxtDuracion().getText()),
-					ruta, agregarCancion.getArea().getText(), ruta);
-		}
-		
+	public void actualizarListaCanciones(){
+		cancion.actualizarLista(agregarCancion.getCanciones());
 	}
-
+	
+	
 }

@@ -13,6 +13,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import logica.Cancion;
 import logica.Genero;
 
 
@@ -40,10 +41,10 @@ public class PanelCancion extends JPanel{
 		add(jScrollPaneS,BorderLayout.CENTER);
 	}
 	
-	public void actualizarLista(ArrayList<Genero> listaActulizada) {
+	public void actualizarLista(ArrayList<Cancion> listaActulizada) {
 		defaultListModel.removeAllElements();
-		for (Genero seleccion : listaActulizada) {
-			defaultListModel.addElement(seleccion.getNombre());
+		for (Cancion cancion : listaActulizada) {
+			defaultListModel.addElement(cancion.getNombre());
 		}
 		jList.setModel(defaultListModel);
 	}

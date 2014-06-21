@@ -16,7 +16,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -26,7 +28,9 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 import logica.Autor;
+import logica.Cancion;
 import logica.Genero;
+import logica.Karaoke;
 
 public class AgregarCancion extends JDialog implements ItemListener{
 
@@ -46,13 +50,16 @@ public class AgregarCancion extends JDialog implements ItemListener{
 	private JComboBox<Autor> cbxAutores;
 	private JLabel foto;
 	private ArrayList<Genero> generos;
+	private ArrayList<Cancion>canciones;
+	private Karaoke lKaraoke;
+	private Cancion cancionC;
 	
 	
 	
 	public final static String ACEPTAR_CANCION = "ACEPTAR_CANCION";
 	public final static String SUBIR_IMAGEN = "SUBIR_IMAGEN";
 	
-	public AgregarCancion(KaraokePrincipal karaoke, ManejadorDeEventos deEventos, ArrayList<Genero> Lgeneros) {
+	public AgregarCancion(KaraokePrincipal karaoke, ManejadorDeEventos deEventos, ArrayList<Genero> Lgeneros, Karaoke lKaraoke) {
 		
 		setSize(750,550);
 		setTitle("Agregar Cancion");
@@ -130,6 +137,16 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		cbxGeneros.addItemListener(this);
 		
 		generos = Lgeneros;
+		canciones = new ArrayList<>();
+		this.lKaraoke = lKaraoke;
+	}
+
+	public ArrayList<Cancion> getCanciones() {
+		return canciones;
+	}
+
+	public void setCanciones(ArrayList<Cancion> canciones) {
+		this.canciones = canciones;
 	}
 
 	public void setCbxAutores(JComboBox<Autor> cbxAutores) {
@@ -185,6 +202,23 @@ public class AgregarCancion extends JDialog implements ItemListener{
 			modeloGeneros.addElement(genero.getNombre());
 		}
 	}
+	public boolean camposVacios() {
+		boolean vacios = false;
+		if (txtNombreCancion.getText().isEmpty() && txtDuracion.getText().isEmpty()) {
+			vacios = true;
+		}
+		return vacios;
+	}
+	public boolean buscarRepetido() {
+		boolean repetido = false;
+		for (Cancion cancion : canciones) {
+			if (txtNombreCancion.getText().equals(cancion.getNombre()) && txtDuracion.getText().equals(cancion.getDuracion())) {
+				repetido = true;
+			}
+		}
+		return repetido;
+	}
+	
 	
 	public void vaciarCamposCancion() {
 		txtDuracion.setText("");
@@ -194,6 +228,28 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		cbxGeneros.setSelectedIndex(0);
 		
 	}
+	public void CrearCancion() {
+		if (!camposVacios()) {
+			if (!buscarRepetido()) {
+				JFileChooser jf = new JFileChooser("./src/archivos/");
+				int opcion = jf.showSaveDialog(this);
+				if (opcion == jf.APPROVE_OPTION) {
+					String ruta = jf.getSelectedFile().getPath();
+					cancionC = new Cancion(txtNombreCancion.getText(), Integer.parseInt(txtDuracion.getText()), ruta);
+
+					
+				}
+				canciones.add(cancionC);
+				generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxAutores.getSelectedIndex()).getListaCanciones().add(cancionC);
+			}else {
+				JOptionPane.showMessageDialog(null, "El artista se encuentra registrado");
+			}
+		}else {
+			JOptionPane.showMessageDialog(null, "Ingresa los datos");
+		}
+		
+	}
+
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
