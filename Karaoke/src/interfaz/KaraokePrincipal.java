@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.SwingUtilities;
@@ -190,10 +191,14 @@ public class KaraokePrincipal extends JFrame {
 	}
 
 	public void agregarCancion() {
-		//int id = agregarCancion.getCbxGeneros().getSelectedIndex();
-		agregarCancion.actualizarComboBoxGeneros(agregarGenero.getGeneros());
-		agregarCancion.actualizarComboBoxartistas(agregarGenero.getGeneros().get(0).getListaAutores());
-		agregarCancion.setVisible(true);
+		if (!agregarGenero.getGeneros().isEmpty()) {
+			agregarCancion.actualizarComboBoxGeneros(agregarGenero.getGeneros());
+			agregarCancion.actualizarComboBoxartistas(agregarGenero.getGeneros().get(0).getListaAutores());
+			agregarCancion.setVisible(true);
+		}else {
+			JOptionPane.showMessageDialog(this, "Agregue un genero y un autor como minimo");
+		}
+		
 	}
 
 	public void agregarGenero() {
