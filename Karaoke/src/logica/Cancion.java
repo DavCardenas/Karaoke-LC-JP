@@ -39,6 +39,7 @@ public class Cancion {
 		this.letra = null;
 		this.numeroLineaActual = 0;
 		Imagen = imagen;
+		archivoPlano = new ArchivoPlano();
 	}
 
 

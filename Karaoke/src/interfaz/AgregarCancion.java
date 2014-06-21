@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -60,7 +61,11 @@ public class AgregarCancion extends JDialog{
 		add(txtDuracion, gbc);
 		
 		area = new JTextArea();
-		gbc = new GridBagConstraints(0, 4, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 400, 100);
+		area.setRows(7);
+		area.setColumns(30);
+		area.setMinimumSize(new Dimension(400, 100));
+		area.setMaximumSize(new Dimension(400, 100));
+		gbc = new GridBagConstraints(0, 4, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(area, gbc);
 		
 		foto = new JLabel(new ImageIcon(getClass().getResource("/Img/logo.png")));
