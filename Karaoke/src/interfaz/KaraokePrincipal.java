@@ -5,10 +5,10 @@ import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JToolBar;
-
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -48,9 +48,10 @@ public class KaraokePrincipal extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
+		
+		
 
-		UIManager.put("Label.font",
-				UIManager.getFont("Label.font").deriveFont((float) 17.0));
+		UIManager.put("Label.font",	UIManager.getFont("Label.font").deriveFont((float) 17.0));
 		SwingUtilities.updateComponentTreeUI(this);
 
 		/*
@@ -174,9 +175,15 @@ public class KaraokePrincipal extends JFrame {
 	}
 
 	public void enviarDatosCancion() {
-		lKaraoke.crearCancion(agregarCancion.getTxtNombreCancion().getText(),
-				Integer.parseInt(agregarCancion.getTxtDuracion().getText()),
-				"", agregarCancion.getArea().getText());
+		JFileChooser jf = new JFileChooser("./src/archivos/");
+		int opcion = jf.showSaveDialog(this);
+		if (opcion == jf.APPROVE_OPTION) {
+			String ruta = jf.getSelectedFile().getPath();
+			lKaraoke.crearCancion(agregarCancion.getTxtNombreCancion().getText(),
+					Integer.parseInt(agregarCancion.getTxtDuracion().getText()),
+					ruta, agregarCancion.getArea().getText(), ruta);
+		}
+		
 	}
 
 }
