@@ -1,6 +1,7 @@
 package logica;
 
 import java.io.Serializable;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Karaoke implements Serializable{
@@ -43,8 +44,9 @@ public class Karaoke implements Serializable{
 		
 	}
 	
-	public void crearCancion(String pNombre, int duracion, String rutaImagen, String pletra, String pruta) {
+	public Cancion crearCancion(String pNombre, int duracion, URL rutaImagen, String pletra, String pruta) {
 		cancionActual = new Cancion(pNombre, duracion, rutaImagen);
 		cancionActual.crearCancion(pletra, pruta);
+		return cancionActual;
 	}
 }

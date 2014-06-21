@@ -1,6 +1,7 @@
 package logica;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import persistencia.ArchivoPlano;
@@ -17,7 +18,7 @@ public class Cancion {
 	private int duracion;
 	private ArrayList<String> letra;
 	private int numeroLineaActual;
-	private String Imagen;
+	private URL Imagen;
 	private ArchivoPlano archivoPlano;
 	
 	
@@ -32,7 +33,7 @@ public class Cancion {
 		
 	}
 
-	public Cancion(String nombre, int duracion,String imagen) {
+	public Cancion(String nombre, int duracion,URL imagen) {
 		super();
 		this.nombre = nombre;
 		this.duracion = duracion;
@@ -69,11 +70,11 @@ public class Cancion {
 		this.numeroLineaActual = numeroLineaActual;
 	}
 
-	public String getImagen() {
+	public URL getImagen() {
 		return Imagen;
 	}
 
-	public void setImagen(String imagen) {
+	public void setImagen(URL imagen) {
 		Imagen = imagen;
 	}
 
@@ -85,7 +86,7 @@ public class Cancion {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	/**
+	/**s
 	 * Metodo que permite mostrar la letra de la cancion
 	 * @return cada linea de la letra.
 	 */

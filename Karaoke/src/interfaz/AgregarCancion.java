@@ -8,6 +8,11 @@ import java.awt.Insets;
 import java.awt.ScrollPane;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -53,6 +58,7 @@ public class AgregarCancion extends JDialog implements ItemListener{
 	private ArrayList<Cancion>canciones;
 	private Karaoke lKaraoke;
 	private Cancion cancionC;
+	private URL imagenUrl;
 	
 	
 	
@@ -235,7 +241,8 @@ public class AgregarCancion extends JDialog implements ItemListener{
 				int opcion = jf.showSaveDialog(this);
 				if (opcion == jf.APPROVE_OPTION) {
 					String ruta = jf.getSelectedFile().getPath();
-					cancionC = new Cancion(txtNombreCancion.getText(), Integer.parseInt(txtDuracion.getText()), ruta);
+					cancionC = lKaraoke.crearCancion(txtNombreCancion.getText(), Integer.parseInt(txtDuracion.getText()), imagenUrl, area.getText(), ruta);
+
 				}
 				canciones.add(cancionC);
 				generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxAutores.getSelectedIndex()).getListaCanciones().add(cancionC);
@@ -248,6 +255,51 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		
 	}
 
+	public void actualizarImagen(String imagen) {
+		try
+		{
+			remove( foto );
+			foto = new JLabel( new ImageIcon( cargarImagen( imagen ) ) );
+			GridBagConstraints gbc = new GridBagConstraints(2, 9, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+			add( foto, gbc );
+			//refresca el Jlabel con el UpdateUI();
+			foto.updateUI();
+		}
+		catch( IOException e )
+		{
+			JOptionPane.showMessageDialog( this, "La imagen no se pudo cargar: " + e.getMessage( ) );
+			e.printStackTrace( );
+		}
+	}
+
+	private byte[] cargarImagen( String imagen ) throws IOException
+	{
+
+		ByteArrayOutputStream baos = new ByteArrayOutputStream( );
+		FileInputStream fin = new FileInputStream( imagen );
+		int data = 0;
+		while( data != -1 )
+		{
+			data = fin.read( );
+			baos.write( data );
+		}
+
+		return baos.toByteArray( );
+	}
+
+	public void seleccionarArchivo() {
+		JFileChooser jf = new JFileChooser("./src/Img/");
+		int opcion = jf.showOpenDialog(null);
+		if (opcion == JFileChooser.APPROVE_OPTION) {
+			String url = jf.getSelectedFile().getPath();
+			try {
+				imagenUrl = new URL("File:///"+url);
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+			this.actualizarImagen(url);		
+		}
+	}
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
