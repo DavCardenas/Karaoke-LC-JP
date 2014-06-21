@@ -19,6 +19,10 @@ public class ManejadorDeEventos implements ActionListener{
 		String comando = e.getActionCommand();
 		
 		switch (comando) {
+		case KaraokePrincipal.COMANDO_ABOUT:
+			karaoke.MostrarAbout();
+			break;
+		
 		case KaraokePrincipal.COMANDO_BOTON_AGREGAR_CANCION:
 			karaoke.agregarCancion();
 			break;

@@ -59,6 +59,7 @@ public class KaraokePrincipal extends JFrame {
 	private JMenuItem itemEliminarGenero;
 	private JMenu menuAyuda;
 	private JMenuItem itemAbout;
+	private JDialogAbout about;
 	
 
 	public static final String COMANDO_BOTON_AGREGAR_CANCION = "AGREGAR_CANCION";
@@ -113,6 +114,7 @@ public class KaraokePrincipal extends JFrame {
 		generos = new PanelGeneros();
 		artista = new PanelArtista();
 		cancion = new PanelCancion();
+		about = new JDialogAbout(eventos, this);
 
 
 		agregarGenero = new AgregarGenero(this, eventos);
@@ -291,7 +293,11 @@ public class KaraokePrincipal extends JFrame {
 
 	}
 	
-
+	public void MostrarAbout() {
+		about.setVisible(true);
+		
+	}
+	
 	public AgregarCancion getAgregarCancion() {
 		return agregarCancion;
 	}
