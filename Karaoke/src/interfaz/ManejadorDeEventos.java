@@ -96,6 +96,7 @@ public class ManejadorDeEventos implements ActionListener{
 			
 		case Reproduccion.BTN_ABRIR:
 			karaoke.getVisualizacion().setCancion(karaoke.getReproduccion().abrirArchivo());
+			karaoke.getReproduccion().dispose();
 			karaoke.visualizar();
 			break;
 			
