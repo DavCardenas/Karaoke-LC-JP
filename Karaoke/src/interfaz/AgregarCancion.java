@@ -66,6 +66,8 @@ public class AgregarCancion extends JDialog implements ItemListener{
 	private Cancion cancionC;
 	private URL imagenUrl;
 	private ArchivoBinarioClase archivoBinarioClase;
+	private int generoSeleccionado;
+	private int artistaSeleccionado;
 	
 	
 	
@@ -155,6 +157,32 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		
 		archivoBinarioClase = new ArchivoBinarioClase();
 	}
+	
+	
+
+	public int getGeneroSeleccionado() {
+		return generoSeleccionado;
+	}
+
+
+
+	public void setGeneroSeleccionado(int generoSeleccionado) {
+		this.generoSeleccionado = generoSeleccionado;
+	}
+
+
+
+	public int getArtistaSeleccionado() {
+		return artistaSeleccionado;
+	}
+
+
+
+	public void setArtistaSeleccionado(int artistaSeleccionado) {
+		this.artistaSeleccionado = artistaSeleccionado;
+	}
+
+
 
 	public void setCbxAutores(JComboBox<String> cbxAutores) {
 		this.cbxAutores = cbxAutores;
@@ -249,6 +277,8 @@ public class AgregarCancion extends JDialog implements ItemListener{
 					cancionC = lKaraoke.crearCancion(txtNombreCancion.getText(), Integer.parseInt(txtDuracion.getText()), imagenUrl, area.getText(), ruta);
 					generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxAutores.getSelectedIndex()).getListaCanciones().add(cancionC);
 					archivoBinarioClase.escribir(cancionC, ruta + ".krk");
+					generoSeleccionado = cbxGeneros.getSelectedIndex();
+					artistaSeleccionado = cbxAutores.getSelectedIndex();
 				}
 				
 			}else {

@@ -1,9 +1,12 @@
 package interfaz;
 
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -37,6 +40,12 @@ public class ListaArtistasImagen extends JLabel implements ListCellRenderer{
 				lista.put(autor.getNombre(), icons.get(i));
 				i++;
 			}
+			
+			setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+			setHorizontalAlignment(JLabel.CENTER);
+			Font fuenteLista = new Font("Swis721 BlkEx BT", Font.PLAIN, 15);
+			setForeground(Color.WHITE);
+			setFont(fuenteLista);
 		
 	}
 

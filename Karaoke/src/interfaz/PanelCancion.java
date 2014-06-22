@@ -29,6 +29,7 @@ public class PanelCancion extends JPanel{
 	private JPanel pnlContenedor;
 	private Font fuenteLista;
 	private ImageIcon imagenfondo;
+	private ListaCancionesImagen lista;
 	
 	public PanelCancion() {
 		
@@ -63,6 +64,14 @@ public class PanelCancion extends JPanel{
 		
 		add(pnlContenedor);
 	}
+	
+	public void imagenListas(ArrayList<Cancion> canciones) {
+		if (!canciones.isEmpty()) {
+			lista = new ListaCancionesImagen(canciones);
+			this.jList.setCellRenderer(lista);
+		}
+	}
+	
 	public void actualizarListaEliminadaCancion() {
 		defaultListModel.removeAllElements();
 	}

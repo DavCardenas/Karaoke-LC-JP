@@ -386,9 +386,25 @@ public class KaraokePrincipal extends JFrame {
 	public EliminarCancion getEliminarCancion() {
 		return eliminarCancion;
 	}
+	
+	public void setArtista(PanelArtista artista) {
+		this.artista = artista;
+	}
+	
+	public PanelArtista getArtista() {
+		return artista;
+	}
 
 	public void setEliminarCancion(EliminarCancion eliminarCancion) {
 		this.eliminarCancion = eliminarCancion;
+	}
+	
+	public void setCancion(PanelCancion cancion) {
+		this.cancion = cancion;
+	}
+	
+	public PanelCancion getCancion() {
+		return cancion;
 	}
 
 	public void agregarCancion() {

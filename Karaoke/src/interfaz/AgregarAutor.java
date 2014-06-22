@@ -36,6 +36,7 @@ public class AgregarAutor extends JDialog {
 	private URL imagenUrl;
 	private ArrayList<Genero> generos;
 	private Autor autor;
+	private int generoSeleccionado;
 
 	public final static String SUBIR_IMAGEN_AUTOR = "SUBIR_IMAGEN_AUTOR";
 	public final static String ACEPTAR_AGREGAR_AUTOR = "ACEPTAR_AUTOR";
@@ -110,18 +111,28 @@ public class AgregarAutor extends JDialog {
 		return repetido;
 	}
 
+	public void setGeneroSeleccionado(int generoSeleccionado) {
+		this.generoSeleccionado = generoSeleccionado;
+	}
+	
+	public int getGeneroSeleccionado() {
+		return generoSeleccionado;
+	}
+	
 	public void agregarAutor() {
-		if (!camposVacios()) {
-			if (!buscarRepetido(generos.get(cbxGeneros.getSelectedIndex()).getListaAutores())) {
-				autor = new Autor(txNombre.getText(), imagenUrl);
-				generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().add(autor);
+		if (!generos.isEmpty()) {
+			if (!camposVacios()) {
+				if (!buscarRepetido(generos.get(cbxGeneros.getSelectedIndex()).getListaAutores())) {
+					autor = new Autor(txNombre.getText(), imagenUrl);
+					generoSeleccionado = cbxGeneros.getSelectedIndex();
+					generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().add(autor);
+				}else {
+					JOptionPane.showMessageDialog(null, "El artista se encuentra registrado");
+				}
 			}else {
-				JOptionPane.showMessageDialog(null, "El artista se encuentra registrado");
+				JOptionPane.showMessageDialog(null, "Ingresa los datos");
 			}
-		}else {
-			JOptionPane.showMessageDialog(null, "Ingresa los datos");
 		}
-		
 	}
 	public void actualizarImagen(String imagen) {
 		try
@@ -166,6 +177,8 @@ public class AgregarAutor extends JDialog {
 				e.printStackTrace();
 			}
 			this.actualizarImagen(url);		
+		}else if (opcion ==  JFileChooser.CANCEL_OPTION) {
+			imagenUrl = null;
 		}
 	}
 	public void actualizarComboBoxGeneros(ArrayList<Genero> ListaGeneros) {

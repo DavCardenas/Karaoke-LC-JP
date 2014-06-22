@@ -32,6 +32,7 @@ public class PanelArtista extends JPanel implements ListSelectionListener{
 	private JPanel pnlContenedor;
 	private Font fuenteLista;
 	private ImageIcon imagenfondo;
+	private ListaArtistasImagen lista;
 	
 	
 	public PanelArtista(ArrayList<Genero> generos, PanelCancion panelCancion) {
@@ -71,6 +72,13 @@ public class PanelArtista extends JPanel implements ListSelectionListener{
 		add(pnlContenedor);
 		jList.addListSelectionListener(this);
 		
+	}
+	
+	public void imagenListas(ArrayList<Autor> autor) {
+		if (!autor.isEmpty()) {
+			lista = new ListaArtistasImagen(autor);
+			this.jList.setCellRenderer(lista);
+		}
 	}
 
 	public PanelGeneros getPanelGeneros() {
