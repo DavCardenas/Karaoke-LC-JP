@@ -32,6 +32,7 @@ public class Visualizacion extends JDialog implements Runnable{
 	private ImageIcon iconPausa;
 	private ImageIcon iconReanuda;
 	private ImageIcon iconDetiene;
+	private ImageIcon iconReproduce;
 	public final static String PAUSAR = "PAUSA";
 	public final static String REANUDAR = "REANUDA";
 	public final static String DETENER = "DETIENE";
@@ -68,11 +69,13 @@ public class Visualizacion extends JDialog implements Runnable{
 		pnlBotones.setLayout(new FlowLayout());
 
 		iconPausa = new ImageIcon(getClass().getResource("/img/pause2.png"));
-		iconReanuda = new ImageIcon(getClass().getResource("/img/play2.png"));
+		iconReanuda = new ImageIcon(getClass().getResource("/img/reanudar2.png"));
 		iconDetiene = new ImageIcon(getClass().getResource("/img/stop2.png"));
+		iconReproduce = new ImageIcon(getClass().getResource("/img/play2.png"));
+		
 
 		
-		Reproducir = new JButton(iconReanuda);
+		Reproducir = new JButton(iconReproduce);
 		Reproducir.setActionCommand(REPRODUCIR);
 		Reproducir.addActionListener(eventos);
 		Reproducir.setToolTipText("Reproducir");
@@ -116,9 +119,6 @@ public class Visualizacion extends JDialog implements Runnable{
 
 
 	public void VisualizarLetra(){
-		lbSuperior.setText("Superior");
-		lbInferior.setText("Inferior");
-		System.out.println("Afuera");
 		if (cancion.getLetra() != null) {
 	System.out.println("Dentro");
 			aux1 = cancion.mostrarLetra();
@@ -128,13 +128,18 @@ public class Visualizacion extends JDialog implements Runnable{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			aux2 = cancion.mostrarLetra();
-			lbInferior.setText(aux1);
-			lbSuperior.setText(aux2);
-			lbSuperior.updateUI();
+			if (cancion.getLetra() != null) {
+				aux2 = cancion.mostrarLetra();
+				lbInferior.setText(aux1);
+				lbSuperior.setText(aux2);
+				lbSuperior.updateUI();
+			}else{
+				JOptionPane.showMessageDialog(null, "Se ha terminado la cancion", "Error", JOptionPane.INFORMATION_MESSAGE);
+				detener();
+			}
+			
 		} else{
-			System.out.println("Option");
-			JOptionPane.showMessageDialog(null, "No se ha cargado nada", "Error", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "No se ha cargado nada", "Error", JOptionPane.ERROR_MESSAGE);
 			detener();
 		}
 
