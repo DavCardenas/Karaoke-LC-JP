@@ -104,7 +104,7 @@ public class Reproduccion extends JDialog implements ItemListener{
 	
 	
 	
-	public void abrirArchivo() {
+	public Cancion abrirArchivo() {
 		JFileChooser jf = new JFileChooser("src/archivos/"+ (String)cbxGeneros.getSelectedItem() + "/" + (String)cbxArtistas.getSelectedItem());
 		int opcion = jf.showOpenDialog(null);
 		if (opcion == jf.APPROVE_OPTION) {
@@ -121,6 +121,7 @@ public class Reproduccion extends JDialog implements ItemListener{
 			cancionActual.abrirCancion(ruta);
 			
 		}
+		return cancionActual;
 	}
 
 	@Override
