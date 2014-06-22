@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 
 import logica.Autor;
@@ -32,7 +33,7 @@ public class Reproduccion extends JDialog implements ItemListener{
 	private ArrayList<Genero> generos;
 	private JButton reproducir;
 	
-	public final static String BTN_REPRODUCIR = "REPRODUCIR";
+	public final static String BTN_ABRIR = "ABRIR_ARCHIVO";
 	
 	public Reproduccion(KaraokePrincipal karaoke, ManejadorDeEventos manejador, ArrayList<Genero> genero) {
 		
@@ -75,7 +76,7 @@ public class Reproduccion extends JDialog implements ItemListener{
 		add(cbxCanciones, gbc);
 		
 		reproducir = new JButton("Reproducir");
-		reproducir.setActionCommand(BTN_REPRODUCIR);
+		reproducir.setActionCommand(BTN_ABRIR);
 		reproducir.addActionListener(manejador);
 		gbc = new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(reproducir, gbc);
@@ -105,6 +106,14 @@ public class Reproduccion extends JDialog implements ItemListener{
 		modeloCancion.removeAllElements();
 		for (Cancion cancion: ListaCanciones) {
 			modeloCancion.addElement(cancion.getNombre());
+		}
+	}
+	
+	public void abrirArchivo() {
+		JFileChooser jf = new JFileChooser("./src/"+ (String)cbxGeneros.getSelectedItem() + "/" + (String)cbxArtistas.getSelectedItem()+ "/");
+		int opcion = jf.showOpenDialog(null);
+		if (opcion == jf.APPROVE_OPTION) {
+			String ruta = jf.getSelectedFile().getPath();
 		}
 	}
 

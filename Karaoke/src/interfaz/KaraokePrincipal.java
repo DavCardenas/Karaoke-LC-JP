@@ -331,6 +331,14 @@ public class KaraokePrincipal extends JFrame {
 		return agregarGenero;
 	}
 
+	public void setReproduccion(Reproduccion reproduccion) {
+		this.reproduccion = reproduccion;
+	}
+	
+	public Reproduccion getReproduccion() {
+		return reproduccion;
+	}
+	
 	public EliminarGenero getEliminarGenero() {
 		return eliminarGenero;
 	}
