@@ -26,6 +26,7 @@ public class Visualizacion extends JDialog implements Runnable{
 	private JButton Reanudar;
 	private JButton Pausa;
 	private JButton Detener;
+	private JButton Reproducir;
 	private JPanel pnlContenedor;
 	private JPanel pnlBotones;
 	private ImageIcon iconPausa;
@@ -34,6 +35,7 @@ public class Visualizacion extends JDialog implements Runnable{
 	public final static String PAUSAR = "PAUSA";
 	public final static String REANUDAR = "REANUDA";
 	public final static String DETENER = "DETIENE";
+	public final static String REPRODUCIR = "REPRODUCIR";
 
 	public Visualizacion(KaraokePrincipal karaoke, ManejadorDeEventos eventos, Cancion cancionActual) {
 		setTitle("Visualizacion");
@@ -69,6 +71,13 @@ public class Visualizacion extends JDialog implements Runnable{
 		iconReanuda = new ImageIcon(getClass().getResource("/img/play2.png"));
 		iconDetiene = new ImageIcon(getClass().getResource("/img/stop2.png"));
 
+		
+		Reproducir = new JButton(iconReanuda);
+		Reproducir.setActionCommand(REPRODUCIR);
+		Reproducir.addActionListener(eventos);
+		Reproducir.setToolTipText("Reproducir");
+		pnlBotones.add(Reproducir);
+		
 		Pausa = new JButton(iconPausa);
 		Pausa.setActionCommand(PAUSAR);
 		Pausa.addActionListener(eventos);
@@ -106,7 +115,7 @@ public class Visualizacion extends JDialog implements Runnable{
 
 
 
-	public void Visualizar(){
+	public void VisualizarLetra(){
 		lbSuperior.setText("Superior");
 		lbInferior.setText("Inferior");
 		System.out.println("Afuera");
@@ -134,7 +143,7 @@ public class Visualizacion extends JDialog implements Runnable{
 	@Override
 	public void run() {
 		while (ejecucion) {
-			Visualizar();
+			VisualizarLetra();
 			while (pausa) {
 				int i = 0;
 				System.out.println("Pausado"+i);
