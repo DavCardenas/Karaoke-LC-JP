@@ -389,7 +389,12 @@ public class KaraokePrincipal extends JFrame {
 	}
 	
 	public void  actualizarListasArtistas() {
-		artista.actualizarLista(agregarGenero.getGeneros().get(0).getListaAutores());
+		if (!agregarGenero.getGeneros().isEmpty()) {
+			artista.actualizarLista(agregarGenero.getGeneros().get(0).getListaAutores());
+		}else {
+			artista.actualizarListaEliminada();
+		}
+		
 	}
 
 	public void actualizarListaGeneros() {

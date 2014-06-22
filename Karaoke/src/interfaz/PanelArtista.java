@@ -42,6 +42,10 @@ public class PanelArtista extends JPanel{
 		
 	}
 	
+	public void actualizarListaEliminada() {
+		defaultListModel.removeAllElements();
+	}
+	
 	public void actualizarLista(ArrayList<Autor> listaActulizada) {
 		defaultListModel.removeAllElements();
 		for (Autor autores : listaActulizada) {
