@@ -40,6 +40,9 @@ public class PanelCancion extends JPanel{
 		jScrollPaneS.getViewport().setBackground (new Color (0.0f,0.0f,0.0f,0.0f));
 		add(jScrollPaneS,BorderLayout.CENTER);
 	}
+	public void actualizarListaEliminadaCancion() {
+		defaultListModel.removeAllElements();
+	}
 	
 	public void actualizarLista(ArrayList<Cancion> listaActulizada) {
 		defaultListModel.removeAllElements();

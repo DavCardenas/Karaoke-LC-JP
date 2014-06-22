@@ -60,7 +60,6 @@ public class AgregarCancion extends JDialog implements ItemListener{
 	private JComboBox<String> cbxAutores;
 	private JLabel foto;
 	private ArrayList<Genero> generos;
-	private ArrayList<Cancion>canciones;
 	private Karaoke lKaraoke;
 	private Cancion cancionC;
 	private URL imagenUrl;
@@ -149,16 +148,7 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		cbxGeneros.addItemListener(this);
 		
 		generos = Lgeneros;
-		canciones = new ArrayList<>();
 		this.lKaraoke = lKaraoke;
-	}
-
-	public ArrayList<Cancion> getCanciones() {
-		return canciones;
-	}
-
-	public void setCanciones(ArrayList<Cancion> canciones) {
-		this.canciones = canciones;
 	}
 
 	public void setCbxAutores(JComboBox<String> cbxAutores) {
@@ -221,7 +211,7 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		}
 		return vacios;
 	}
-	public boolean buscarRepetido() {
+	public boolean buscarRepetido(ArrayList<Cancion> canciones) {
 		boolean repetido = false;
 		for (Cancion cancion : canciones) {
 			if (txtNombreCancion.getText().equals(cancion.getNombre()) && txtDuracion.getText().equals(cancion.getDuracion())) {
@@ -242,16 +232,15 @@ public class AgregarCancion extends JDialog implements ItemListener{
 	}
 	public void CrearCancion() {
 		if (!camposVacios()) {
-			if (!buscarRepetido()) {
+			if (!buscarRepetido(generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxAutores.getSelectedIndex()).getListaCanciones())) {
 				JFileChooser jf = new JFileChooser("./src/archivos/");
 				int opcion = jf.showSaveDialog(this);
 				if (opcion == jf.APPROVE_OPTION) {
 					String ruta = jf.getSelectedFile().getPath();
 					cancionC = lKaraoke.crearCancion(txtNombreCancion.getText(), Integer.parseInt(txtDuracion.getText()), imagenUrl, area.getText(), ruta);
-
+					generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxAutores.getSelectedIndex()).getListaCanciones().add(cancionC);
 				}
-				canciones.add(cancionC);
-				generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxAutores.getSelectedIndex()).getListaCanciones().add(cancionC);
+				
 			}else {
 				JOptionPane.showMessageDialog(null, "El artista se encuentra registrado");
 			}

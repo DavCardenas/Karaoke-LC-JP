@@ -38,7 +38,7 @@ public class ManejadorDeEventos implements ActionListener{
 			break;
 		case AgregarCancion.ACEPTAR_CANCION:
 			karaoke.getAgregarCancion().CrearCancion();
-			karaoke.actualizarListaCanciones();
+			karaoke.actualizarListasCanciones();
 			karaoke.getAgregarCancion().vaciarCamposCancion();
 			break;
 		case KaraokePrincipal.COMANDO_SALIR:
@@ -77,11 +77,22 @@ public class ManejadorDeEventos implements ActionListener{
 		case KaraokePrincipal.COMANDO_BOTON_ELIMINAR_AUTOR:
 			karaoke.eliminarAutor();
 			break;
+		
+		case KaraokePrincipal.COMANDO_BOTON_ELIMINAR_CANCION:
+			karaoke.eliminarCancion();
+		
 		case EliminarAutor.BTN_ELIMINAR_AUTOR:
 			karaoke.getEliminarAutor().eliminarAutor();
 			karaoke.getEliminarAutor().actualizarArtistasEliminados();
 			karaoke.actualizarListasArtistas();
 			break;
+			
+		case EliminarCancion.BTN_ELIMINAR_CANCION:
+			karaoke.getEliminarCancion().eliminarCancion();
+			karaoke.getEliminarCancion().actualizarCancionesEliminados();
+			karaoke.actualizarListasCanciones();
+			break;
+		
 		default:
 			break;
 		}
