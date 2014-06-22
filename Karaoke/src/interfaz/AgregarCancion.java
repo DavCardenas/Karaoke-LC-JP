@@ -9,6 +9,7 @@ import java.awt.ScrollPane;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -233,8 +234,12 @@ public class AgregarCancion extends JDialog implements ItemListener{
 	public void CrearCancion() {
 		if (!camposVacios()) {
 			if (!buscarRepetido(generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxAutores.getSelectedIndex()).getListaCanciones())) {
-				JFileChooser jf = new JFileChooser("./src/archivos/");
-				int opcion = jf.showSaveDialog(this);
+				File dir = new File("src/archivos/"+ (String)cbxGeneros.getSelectedItem());
+				dir.mkdir();
+				File dirA = new File(dir.getPath()+ "/" +(String)cbxAutores.getSelectedItem());
+				dirA.mkdir();
+				JFileChooser jf = new JFileChooser(dirA.getPath());
+				int opcion = jf.showSaveDialog(null);
 				if (opcion == jf.APPROVE_OPTION) {
 					String ruta = jf.getSelectedFile().getPath();
 					cancionC = lKaraoke.crearCancion(txtNombreCancion.getText(), Integer.parseInt(txtDuracion.getText()), imagenUrl, area.getText(), ruta);
