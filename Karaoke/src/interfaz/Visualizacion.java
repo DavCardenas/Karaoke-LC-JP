@@ -138,7 +138,7 @@ public class Visualizacion extends JDialog implements Runnable{
 			}
 			
 		} else{
-		JOptionPane.showMessageDialog(null, "Terminado", "Alerta", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Terminado", "Alerta", JOptionPane.INFORMATION_MESSAGE);
 			detener();
 		}
 

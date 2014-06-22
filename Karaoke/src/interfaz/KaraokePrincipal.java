@@ -393,13 +393,15 @@ public class KaraokePrincipal extends JFrame {
 		}
 
 	}
+	public void mostrarReproduccion(){
+		reproduccion.setVisible(true);
+	}
 	
 	public void reproducir() {
 		if (!agregarGenero.getGeneros().isEmpty()) {
 			if (!agregarGenero.getGeneros().get(0).getListaAutores().isEmpty()) {
 				reproduccion.actualizarComboBoxGeneros(agregarGenero.getGeneros());
 				reproduccion.actualizarComboBoxartistas(agregarGenero.getGeneros().get(0).getListaAutores());
-				reproduccion.setVisible(true);
 			}else {
 				JOptionPane.showMessageDialog(this, "Agregue un genero y un autor como minimo");
 			}

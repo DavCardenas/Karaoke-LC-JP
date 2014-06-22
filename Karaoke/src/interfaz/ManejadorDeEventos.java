@@ -83,6 +83,7 @@ public class ManejadorDeEventos implements ActionListener{
 			
 		case KaraokePrincipal.COMANDO_BOTON_PLAY:
 			karaoke.reproducir();
+			karaoke.mostrarReproduccion();
 			break;
 			
 		case KaraokePrincipal.COMANDO_BOTON_ELIMINAR_AUTOR:
