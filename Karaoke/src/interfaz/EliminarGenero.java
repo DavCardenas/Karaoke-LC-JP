@@ -80,6 +80,7 @@ public class EliminarGenero extends JDialog{
 	public ArrayList<Genero> getGeneros() {
 		return generos;
 	}
+	
 	public void actualizarComboBoxGeneros(ArrayList<Genero> ListaGeneros) {
 		modeloGeneros.removeAllElements();
 		for (Genero genero: ListaGeneros) {
@@ -87,11 +88,10 @@ public class EliminarGenero extends JDialog{
 		}
 	}
 	
-	public ArrayList<Genero> eliminarGenero(ArrayList<Genero> lista) {
+	public void eliminarGenero(ArrayList<Genero> lista) {
 		if (!lista.isEmpty()) {
 			lista.remove(cbxGeneros.getSelectedIndex());
 			
 		}
-		return lista;
 	}	
 }

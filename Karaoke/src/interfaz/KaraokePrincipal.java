@@ -61,6 +61,7 @@ public class KaraokePrincipal extends JFrame {
 	private JMenu menuAyuda;
 	private JMenuItem itemAbout;
 	private JDialogAbout about;
+	private EliminarAutor eliminarAutor;
 	
 
 	public static final String COMANDO_BOTON_AGREGAR_CANCION = "AGREGAR_CANCION";
@@ -119,10 +120,12 @@ public class KaraokePrincipal extends JFrame {
 		about = new JDialogAbout(eventos, this);
 
 		eliminarGenero = new EliminarGenero(this, eventos);
+		
 		agregarGenero = new AgregarGenero(this, eventos);
 		agregarAutor = new AgregarAutor(this, eventos, agregarGenero.getGeneros());
 		agregarCancion = new AgregarCancion(this, eventos, agregarGenero.getGeneros(), lKaraoke);
 		reproduccion = new Reproduccion(this, eventos, agregarGenero.getGeneros());
+		eliminarAutor = new EliminarAutor(this, eventos, agregarGenero.getGeneros());
 
 		// T O L B A R
 		toolBar = new JToolBar(("Menu de registro"));
@@ -300,6 +303,7 @@ public class KaraokePrincipal extends JFrame {
 		
 	}
 	public void mostrarEliminarGenero() {
+		eliminarGenero.actualizarComboBoxGeneros(agregarGenero.getGeneros());
 		eliminarGenero.setVisible(true);
 	}
 	
@@ -335,6 +339,16 @@ public class KaraokePrincipal extends JFrame {
 		this.agregarAutor = agregarAutor;
 	}
 
+	public void setEliminarAutor(EliminarAutor eliminarAutor) {
+		this.eliminarAutor = eliminarAutor;
+	}
+	
+	public EliminarAutor getEliminarAutor() {
+		return eliminarAutor;
+	}
+	
+	
+	
 	public void agregarCancion() {
 		if (!agregarGenero.getGeneros().isEmpty()) {
 			agregarCancion.actualizarComboBoxGeneros(agregarGenero.getGeneros());
@@ -366,25 +380,26 @@ public class KaraokePrincipal extends JFrame {
 		agregarAutor.setVisible(true);
 	}
 	
-	
+	public void eliminarAutor() {
+		if (!agregarGenero.getGeneros().isEmpty()) {
+			eliminarAutor.actualizarComboBoxGeneros(agregarGenero.getGeneros());
+			eliminarAutor.actualizarComboBoxartistas(agregarGenero.getGeneros().get(0).getListaAutores());
+			eliminarAutor.setVisible(true);
+		}
+	}
 	
 	public void  actualizarListasArtistas() {
-		artista.actualizarLista(agregarAutor.getAutores());
+		artista.actualizarLista(agregarGenero.getGeneros().get(0).getListaAutores());
 	}
 
 	public void actualizarListaGeneros() {
 		generos.actualizarLista(agregarGenero.getGeneros());
-		eliminarGenero.actualizarComboBoxGeneros(agregarGenero.getGeneros());
 		
 		
 	}
 	public void actualizarListaCanciones(){
 		cancion.actualizarLista(agregarCancion.getCanciones());
 	}
-	public void eliminarGenero(){
 		
-		eliminarGenero.eliminarGenero(agregarGenero.getGeneros());
-}
-	
 
 }

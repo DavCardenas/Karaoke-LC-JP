@@ -31,7 +31,6 @@ public class ManejadorDeEventos implements ActionListener{
 			break;
 			
 		case KaraokePrincipal.COMANDO_BOTON_ELIMINAR_GENERO:
-			karaoke.actualizarListaGeneros();
 			karaoke.mostrarEliminarGenero();
 			break;
 		case KaraokePrincipal.COMANDO_BOTON_AGREGAR_AUTOR:
@@ -55,7 +54,9 @@ public class ManejadorDeEventos implements ActionListener{
 			break;
 			
 		case EliminarGenero.ELIMINAR_GENERO:
-			karaoke.eliminarGenero();
+			karaoke.getEliminarGenero().eliminarGenero(karaoke.getAgregarGenero().getGeneros());
+			karaoke.getEliminarGenero().actualizarComboBoxGeneros(karaoke.getAgregarGenero().getGeneros());
+			karaoke.actualizarListaGeneros();
 			break;
 			
 		case AgregarAutor.ACEPTAR_AGREGAR_AUTOR:
@@ -71,6 +72,14 @@ public class ManejadorDeEventos implements ActionListener{
 			break;
 		case KaraokePrincipal.COMANDO_BOTON_PLAY:
 			karaoke.reproducir();
+			break;
+		case KaraokePrincipal.COMANDO_BOTON_ELIMINAR_AUTOR:
+			karaoke.eliminarAutor();
+			break;
+		case EliminarAutor.BTN_ELIMINAR_AUTOR:
+			karaoke.getEliminarAutor().eliminarAutor();
+			karaoke.getEliminarAutor().actualizarArtistasEliminados();
+			karaoke.actualizarListasArtistas();
 			break;
 		default:
 			break;

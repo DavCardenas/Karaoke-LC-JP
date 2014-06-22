@@ -34,7 +34,6 @@ public class AgregarAutor extends JDialog {
 	private JButton btnAgregarAutor;
 	private JButton btnSubirFoto;
 	private URL imagenUrl;
-	private ArrayList<Autor> autores;
 	private ArrayList<Genero> generos;
 	private Autor autor;
 
@@ -91,17 +90,9 @@ public class AgregarAutor extends JDialog {
 		gbc = new GridBagConstraints(0, 7, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 		add(btnAgregarAutor, gbc);
 
-		autores = new ArrayList<>();
 		generos = ListaGeneros;
 	}
 
-	public ArrayList<Autor> getAutores() {
-		return autores;
-	}
-
-	public void setAutores(ArrayList<Autor> autores) {
-		this.autores = autores;
-	}
 	public boolean camposVacios() {
 		boolean vacios = false;
 		if (txNombre.getText().isEmpty()) {
@@ -109,7 +100,7 @@ public class AgregarAutor extends JDialog {
 		}
 		return vacios;
 	}
-	public boolean buscarRepetido() {
+	public boolean buscarRepetido(ArrayList<Autor> autores) {
 		boolean repetido = false;
 		for (Autor autor : autores) {
 			if (txNombre.getText().equals(autor.getNombre())) {
@@ -121,9 +112,8 @@ public class AgregarAutor extends JDialog {
 
 	public void agregarAutor() {
 		if (!camposVacios()) {
-			if (!buscarRepetido()) {
+			if (!buscarRepetido(generos.get(cbxGeneros.getSelectedIndex()).getListaAutores())) {
 				autor = new Autor(txNombre.getText(), imagenUrl);
-				autores.add(autor);
 				generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().add(autor);
 			}else {
 				JOptionPane.showMessageDialog(null, "El artista se encuentra registrado");

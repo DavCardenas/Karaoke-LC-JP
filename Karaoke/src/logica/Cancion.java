@@ -22,7 +22,6 @@ public class Cancion {
 	private ArchivoPlano archivoPlano;
 	
 	
-	
 	public Cancion() {
 		nombre = null;
 		duracion = 0;
