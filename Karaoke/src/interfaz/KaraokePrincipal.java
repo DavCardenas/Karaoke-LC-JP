@@ -416,7 +416,7 @@ public class KaraokePrincipal extends JFrame {
 	}
 	
 	public void actualizarListasCanciones(){
-		if (!agregarGenero.getGeneros().get(0).getListaAutores().isEmpty()) {
+		if (!agregarGenero.getGeneros().isEmpty()) {
 			cancion.actualizarLista(agregarGenero.getGeneros().get(0).getListaAutores().get(0).getListaCanciones());
 		}
 		else{

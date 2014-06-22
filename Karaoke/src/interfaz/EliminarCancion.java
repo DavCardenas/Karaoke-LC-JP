@@ -87,7 +87,10 @@ public class EliminarCancion extends JDialog implements ItemListener{
 		this.generos = genero;
 	}
 	public void eliminarCancion(){
-		generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxArtistas.getSelectedIndex()).getListaCanciones().remove(cbxCanciones.getSelectedIndex());
+		if (!generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxArtistas.getSelectedIndex()).getListaCanciones().isEmpty()) {
+			generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxArtistas.getSelectedIndex()).getListaCanciones().remove(cbxCanciones.getSelectedIndex());
+		}
+		
 	}
 	
 	public void actualizarComboBoxartistas(ArrayList<Autor> listaArtistas) {
@@ -111,7 +114,7 @@ public class EliminarCancion extends JDialog implements ItemListener{
 		}
 	}
 	public void actualizarCancionesEliminados() {
-		actualizarComboBoxCanciones(generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(0).getListaCanciones());
+		actualizarComboBoxCanciones(generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxArtistas.getSelectedIndex()).getListaCanciones());
 	}
 		
 	@Override
