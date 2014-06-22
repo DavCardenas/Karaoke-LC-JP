@@ -4,10 +4,14 @@ package interfaz;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -22,14 +26,31 @@ public class PanelCancion extends JPanel{
 	private JList<String> jList;
 	private DefaultListModel<String > defaultListModel;
 	private JScrollPane jScrollPaneS;
+	private JPanel pnlContenedor;
+	private Font fuenteLista;
+	private ImageIcon imagenfondo;
 	
 	public PanelCancion() {
 		
 		setPreferredSize(new Dimension(333, getHeight()));
-		setLayout(new BorderLayout());
+		setLayout(new GridLayout());
+		setBackground(new Color (0.0f,0.0f,0.0f,0.3f));
+		setOpaque(false);
+		
+		fuenteLista = new Font("Swis721 BlkEx BT", Font.PLAIN, 15);
+		
+		pnlContenedor = new JPanel();
+		pnlContenedor.setLayout(new BorderLayout());
+		pnlContenedor.setBackground(Color.WHITE);
+		pnlContenedor.setOpaque(false);
+
 		
 		defaultListModel = new DefaultListModel<>();
 		jList = new JList<>(defaultListModel);
+		jList.setFont(fuenteLista);
+		jList.setForeground(Color.WHITE);
+		jList.setOpaque(false);
+		jList.setBackground(new Color(0.0f,0.0f,0.0f,0.0f));
 		
 		jScrollPaneS = new JScrollPane(jList);
 		DefaultListCellRenderer renderer =  (DefaultListCellRenderer)jList.getCellRenderer();  
@@ -38,7 +59,9 @@ public class PanelCancion extends JPanel{
 		jScrollPaneS.getViewport().setOpaque(false);
 		jScrollPaneS.setBorder(null);
 		jScrollPaneS.getViewport().setBackground (new Color (0.0f,0.0f,0.0f,0.0f));
-		add(jScrollPaneS,BorderLayout.CENTER);
+		pnlContenedor.add(jScrollPaneS,BorderLayout.CENTER);
+		
+		add(pnlContenedor);
 	}
 	public void actualizarListaEliminadaCancion() {
 		defaultListModel.removeAllElements();
@@ -50,6 +73,13 @@ public class PanelCancion extends JPanel{
 			defaultListModel.addElement(cancion.getNombre());
 		}
 		jList.setModel(defaultListModel);
+	}
+	@Override
+	public void paint(Graphics g) {
+		Dimension tamanio = getSize();
+		imagenfondo = new ImageIcon(getClass().getResource("/Img/Derecha.png"));
+		g.drawImage(imagenfondo.getImage(),0,0,tamanio.width,tamanio.height, null);
+		super.paint(g);
 	}
 	
 }
