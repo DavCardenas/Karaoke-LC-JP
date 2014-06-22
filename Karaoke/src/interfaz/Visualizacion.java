@@ -25,13 +25,12 @@ public class Visualizacion extends JDialog{
 		
 		
 		lbSuperior = new JLabel("");
-		lbSuperior.setBackground(Color.red);
-		
+				
 		lbCentral = new JLabel("");
-		lbCentral.setBackground(Color.green);
+		
 		
 		lbInferior = new JLabel("");
-		lbInferior.setBackground(Color.blue);
+		
 		
 		
 		add(lbSuperior);
