@@ -300,8 +300,7 @@ public class KaraokePrincipal extends JFrame {
 
 		contenedorListas = new JPanel();
 		contenedorListas.setLayout(new GridLayout(1,3));
-		contenedorListas.getGraphics();
-		
+				
 		setJMenuBar(menuBar);
 		
 		add(toolBar, BorderLayout.NORTH);
@@ -469,14 +468,4 @@ public class KaraokePrincipal extends JFrame {
 		
 	}
 	
-	@Override
-	public void paint(Graphics g) {
-		super.paint(g);		
-		Dimension tamanio = getSize();
-		ImageIcon imagenfondo = new ImageIcon(getClass().getResource("/Img/Frame.png"));
-		g.drawImage(imagenfondo.getImage(),0,0,tamanio.width,tamanio.height, contenedorListas);
-		contenedorListas.setOpaque(false);
-		
-	
-	}
 }
