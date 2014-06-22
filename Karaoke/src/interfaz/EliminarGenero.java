@@ -91,7 +91,6 @@ public class EliminarGenero extends JDialog{
 	public void eliminarGenero(ArrayList<Genero> lista) {
 		if (!lista.isEmpty()) {
 			lista.remove(cbxGeneros.getSelectedIndex());
-			
 		}
 	}	
 }

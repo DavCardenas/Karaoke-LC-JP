@@ -6,7 +6,6 @@ import java.awt.GridLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -112,12 +111,7 @@ public class KaraokePrincipal extends JFrame {
 		eventos = new ManejadorDeEventos(this);
 		lKaraoke = new Karaoke();
 		// PANELES
-		contenedorListas = new JPanel();
-		contenedorListas.setLayout(new GridLayout(1,3));
-		generos = new PanelGeneros();
-		artista = new PanelArtista();
-		cancion = new PanelCancion();
-		about = new JDialogAbout(eventos, this);
+		
 
 		eliminarGenero = new EliminarGenero(this, eventos);
 		
@@ -127,6 +121,14 @@ public class KaraokePrincipal extends JFrame {
 		reproduccion = new Reproduccion(this, eventos, agregarGenero.getGeneros());
 		eliminarAutor = new EliminarAutor(this, eventos, agregarGenero.getGeneros());
 
+		
+		contenedorListas = new JPanel();
+		contenedorListas.setLayout(new GridLayout(1,3));
+		
+		artista = new PanelArtista();
+		cancion = new PanelCancion();
+		about = new JDialogAbout(eventos, this);
+		generos = new PanelGeneros(agregarGenero.getGeneros(), artista);
 		// T O L B A R
 		toolBar = new JToolBar(("Menu de registro"));
 		toolBar.setOrientation(JToolBar.HORIZONTAL);
