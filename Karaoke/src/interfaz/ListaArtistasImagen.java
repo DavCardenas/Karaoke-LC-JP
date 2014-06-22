@@ -24,7 +24,7 @@ public class ListaArtistasImagen extends JLabel implements ListCellRenderer{
 	public ListaArtistasImagen(ArrayList<Autor> autores) {
 		icons = new ArrayList<>();
 		lista = new Hashtable<>();
-		iconoNulo = new ImageIcon(getClass().getResource("/Img/AddArtist.png"));
+		iconoNulo = new ImageIcon(getClass().getResource("/Img/artista.png"));
 		
 			for (Autor autor : autores) {
 				if (autor != null) {

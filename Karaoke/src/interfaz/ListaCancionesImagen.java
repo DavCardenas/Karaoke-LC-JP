@@ -25,7 +25,7 @@ public class ListaCancionesImagen extends JLabel implements ListCellRenderer{
 	public ListaCancionesImagen(ArrayList<Cancion> canciones) {
 		icons = new ArrayList<>();
 		lista = new Hashtable<>();
-		iconoNulo = new ImageIcon(getClass().getResource("/Img/AddSong.png"));
+		iconoNulo = new ImageIcon(getClass().getResource("/Img/cancion.png"));
 		
 			for (Cancion cancion : canciones) {
 				if (cancion != null) {

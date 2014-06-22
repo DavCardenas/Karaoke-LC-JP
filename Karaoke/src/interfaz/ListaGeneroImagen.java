@@ -24,7 +24,7 @@ public class ListaGeneroImagen extends JLabel implements ListCellRenderer{
 	public ListaGeneroImagen(ArrayList<Genero> generos) {
 		icons = new ArrayList<>();
 		lista = new Hashtable<>();
-		iconoNulo = new ImageIcon(getClass().getResource("/Img/AddGenero.png"));
+		iconoNulo = new ImageIcon(getClass().getResource("/Img/genero.png"));
 		
 			for (Genero genero : generos) {
 				if (genero != null) {
