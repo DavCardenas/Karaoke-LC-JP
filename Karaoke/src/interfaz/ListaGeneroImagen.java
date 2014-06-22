@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -15,8 +16,12 @@ import javax.swing.ListCellRenderer;
 
 import logica.Genero;
 
-public class ListaGeneroImagen extends JLabel implements ListCellRenderer{
+public class ListaGeneroImagen extends JLabel implements ListCellRenderer<Object>, Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Hashtable<Object, ImageIcon> lista;
 	private ArrayList<ImageIcon> icons;
 	private ImageIcon iconoNulo;

@@ -8,6 +8,7 @@ import java.awt.Insets;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,10 +25,15 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 
+
 import logica.Genero;
 
-public class EliminarGenero extends JDialog{
+public class EliminarGenero extends JDialog implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lbGenero;
 	private DefaultComboBoxModel modeloGeneros;
 	private JComboBox<Genero> cbxGeneros;

@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.io.Serializable;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,7 +16,11 @@ import javax.swing.JPanel;
 
 import logica.Cancion;
 
-public class Visualizacion extends JDialog implements Runnable{
+public class Visualizacion extends JDialog implements Runnable, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lbSuperior;
 	private JLabel lbInferior;
 	private Cancion cancion;

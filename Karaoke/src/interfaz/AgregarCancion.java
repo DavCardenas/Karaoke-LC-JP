@@ -12,6 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ import logica.Cancion;
 import logica.Genero;
 import logica.Karaoke;
 
-public class AgregarCancion extends JDialog implements ItemListener{
+public class AgregarCancion extends JDialog implements ItemListener, Serializable{
 
 	/**
 	 * 

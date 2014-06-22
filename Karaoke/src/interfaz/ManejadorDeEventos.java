@@ -2,11 +2,16 @@ package interfaz;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 
 import logica.Karaoke;
 
-public class ManejadorDeEventos implements ActionListener {
+public class ManejadorDeEventos implements ActionListener,Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private KaraokePrincipal karaoke;
 
 	public ManejadorDeEventos(KaraokePrincipal pkaraoke) {

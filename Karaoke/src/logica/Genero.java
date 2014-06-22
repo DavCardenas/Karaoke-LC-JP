@@ -1,10 +1,15 @@
 package logica;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class Genero {
+public class Genero implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * Esta clase va  a contener una lista de autores, as� como una respectiva imagen de G�nero y el alb�m.
 	 */

@@ -6,6 +6,7 @@ import java.awt.Insets;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -23,8 +24,12 @@ import javax.swing.JTextField;
 import logica.Autor;
 import logica.Genero;
 
-public class AgregarAutor extends JDialog {
+public class AgregarAutor extends JDialog  implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lbNombre;
 	private JTextField txNombre;
 	private JLabel lbGenero;

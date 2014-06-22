@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListCellRenderer;
@@ -22,8 +23,12 @@ import logica.Cancion;
 import logica.Genero;
 
 
-public class PanelCancion extends JPanel{
+public class PanelCancion extends JPanel implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JList<String> jList;
 	private DefaultListModel<String > defaultListModel;
 	private JScrollPane jScrollPaneS;

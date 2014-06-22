@@ -5,6 +5,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
@@ -17,8 +18,12 @@ import javax.swing.JLabel;
 import logica.Autor;
 import logica.Genero;
 
-public class EliminarAutor extends JDialog implements ItemListener{
+public class EliminarAutor extends JDialog implements ItemListener, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lbGenero;
 	private JLabel lbArtista;
 	private DefaultComboBoxModel<String> modeloGenero;

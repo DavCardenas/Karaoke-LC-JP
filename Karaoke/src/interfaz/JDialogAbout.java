@@ -7,6 +7,7 @@ import java.awt.Cursor;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.io.Serializable;
 import java.util.Properties;
 
 import javax.swing.Icon;
@@ -27,9 +28,13 @@ import javax.swing.border.Border;
  *
  * 
  */
-public class JDialogAbout extends JDialog{
+public class JDialogAbout extends JDialog implements Serializable{
  
-    private JTextArea jTextAbout;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JTextArea jTextAbout;
     private JLabel jLabelImage;
     private Image imagen;
     private JButton jButtonAccept;

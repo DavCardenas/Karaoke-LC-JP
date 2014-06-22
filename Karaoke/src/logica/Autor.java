@@ -1,10 +1,15 @@
 package logica;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class Autor {
+public class Autor implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private ArrayList<Cancion> listaCanciones;
 	private URL foto;
