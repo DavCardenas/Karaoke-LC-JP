@@ -26,6 +26,7 @@ public class ManejadorDeEventos implements ActionListener{
 		case KaraokePrincipal.COMANDO_BOTON_AGREGAR_CANCION:
 			karaoke.agregarCancion();
 			break;
+			
 		case KaraokePrincipal.COMANDO_BOTON_AGREGAR_GENERO:
 			karaoke.agregarGenero();
 			break;
@@ -33,20 +34,25 @@ public class ManejadorDeEventos implements ActionListener{
 		case KaraokePrincipal.COMANDO_BOTON_ELIMINAR_GENERO:
 			karaoke.mostrarEliminarGenero();
 			break;
+			
 		case KaraokePrincipal.COMANDO_BOTON_AGREGAR_AUTOR:
 			karaoke.agregarAutor();
 			break;
+			
 		case AgregarCancion.ACEPTAR_CANCION:
 			karaoke.getAgregarCancion().CrearCancion();
 			karaoke.actualizarListasCanciones();
 			karaoke.getAgregarCancion().vaciarCamposCancion();
 			break;
+			
 		case KaraokePrincipal.COMANDO_SALIR:
 			System.exit(0);
 			break;
+			
 		case AgregarGenero.SUBIR_IMAGEN_GENERO:
 			karaoke.getAgregarGenero().seleccionarArchivo();
 			break;
+			
 		case AgregarGenero.ACEPTAR:
 			karaoke.getAgregarGenero().agregarGenero();
 			karaoke.actualizarListaGeneros();
@@ -66,15 +72,19 @@ public class ManejadorDeEventos implements ActionListener{
 			karaoke.actualizarListasArtistas();
 			karaoke.getAgregarAutor().vaciarCamposAutor();
 			break;
+			
 		case AgregarAutor.SUBIR_IMAGEN_AUTOR:
 			karaoke.getAgregarAutor().seleccionarArchivo();
 			break;
+			
 		case AgregarCancion.SUBIR_IMAGEN:
 			karaoke.getAgregarCancion().seleccionarArchivo();
 			break;
+			
 		case KaraokePrincipal.COMANDO_BOTON_PLAY:
 			karaoke.reproducir();
 			break;
+			
 		case KaraokePrincipal.COMANDO_BOTON_ELIMINAR_AUTOR:
 			karaoke.eliminarAutor();
 			break;
@@ -84,9 +94,9 @@ public class ManejadorDeEventos implements ActionListener{
 			break;
 			
 		case Reproduccion.BTN_ABRIR:
-			karaoke.getReproduccion().abrirArchivo();
-			karaoke.visualizar();
 			karaoke.getVisualizacion().setCancion(karaoke.getReproduccion().abrirArchivo());
+			karaoke.visualizar();
+			karaoke.getVisualizacion().iniciar();
 			break;
 			
 		case EliminarAutor.BTN_ELIMINAR_AUTOR:

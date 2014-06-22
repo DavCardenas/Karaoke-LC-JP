@@ -45,7 +45,7 @@ public class Visualizacion extends JDialog implements Runnable{
 		setLocationRelativeTo(karaoke);
 
 		ejecucion = true;
-		pausa = true;
+		pausa = false;
 		this.cancion = cancionActual;
 
 		hiloVisualizar = new Thread(this);
@@ -53,17 +53,17 @@ public class Visualizacion extends JDialog implements Runnable{
 		aux2 = "";
 
 		pnlContenedor = new JPanel();
-		setLayout(new GridLayout(2, 1));
+		pnlContenedor.setLayout(new GridLayout(2, 1));
 
-		lbSuperior = new JLabel("");
-		lbInferior = new JLabel("");
+		lbSuperior = new JLabel();
+		lbInferior = new JLabel();
 
 		pnlContenedor.add(lbSuperior);
 		pnlContenedor.add(lbInferior);
 
 
 		pnlBotones = new JPanel();
-		setLayout(new FlowLayout());
+		pnlBotones.setLayout(new FlowLayout());
 
 		iconPausa = new ImageIcon(getClass().getResource("/img/pause2.png"));
 		iconReanuda = new ImageIcon(getClass().getResource("/img/play2.png"));
@@ -107,7 +107,11 @@ public class Visualizacion extends JDialog implements Runnable{
 
 
 	public void Visualizar(){
+		lbSuperior.setText("Superior");
+		lbInferior.setText("Inferior");
+		System.out.println("Afuera");
 		if (cancion.getLetra() != null) {
+	System.out.println("Dentro");
 			aux1 = cancion.mostrarLetra();
 			lbSuperior.setText(aux1);
 			try {
@@ -120,6 +124,7 @@ public class Visualizacion extends JDialog implements Runnable{
 			lbSuperior.setText(aux2);
 			lbSuperior.updateUI();
 		} else{
+			System.out.println("Option");
 			JOptionPane.showMessageDialog(null, "No se ha cargado nada", "Error", JOptionPane.ERROR_MESSAGE);
 			detener();
 		}
@@ -131,7 +136,8 @@ public class Visualizacion extends JDialog implements Runnable{
 		while (ejecucion) {
 			Visualizar();
 			while (pausa) {
-				System.out.println("Pausado");
+				int i = 0;
+				System.out.println("Pausado"+i);
 			}
 		}
 	}
