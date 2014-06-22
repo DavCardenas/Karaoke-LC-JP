@@ -110,7 +110,7 @@ public class Reproduccion extends JDialog implements ItemListener{
 	}
 	
 	public void abrirArchivo() {
-		JFileChooser jf = new JFileChooser("./src/"+ (String)cbxGeneros.getSelectedItem() + "/" + (String)cbxArtistas.getSelectedItem()+ "/");
+		JFileChooser jf = new JFileChooser("src/archivos/"+ (String)cbxGeneros.getSelectedItem() + "/" + (String)cbxArtistas.getSelectedItem());
 		int opcion = jf.showOpenDialog(null);
 		if (opcion == jf.APPROVE_OPTION) {
 			String ruta = jf.getSelectedFile().getPath();
