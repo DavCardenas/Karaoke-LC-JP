@@ -236,19 +236,19 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		
 	}
 	public void CrearCancion() {
+		File dir = new File("src/archivos/"+ (String)cbxGeneros.getSelectedItem());
+		dir.mkdir();
+		File dirA = new File(dir.getPath()+ "/" +(String)cbxAutores.getSelectedItem());
+		dirA.mkdir();
 		if (!camposVacios()) {
 			if (!buscarRepetido(generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxAutores.getSelectedIndex()).getListaCanciones())) {
-				File dir = new File("src/archivos/"+ (String)cbxGeneros.getSelectedItem());
-				dir.mkdir();
-				File dirA = new File(dir.getPath()+ "/" +(String)cbxAutores.getSelectedItem());
-				dirA.mkdir();
 				JFileChooser jf = new JFileChooser(dirA.getPath());
 				int opcion = jf.showSaveDialog(null);
 				if (opcion == jf.APPROVE_OPTION) {
 					String ruta = jf.getSelectedFile().getPath();
 					cancionC = lKaraoke.crearCancion(txtNombreCancion.getText(), Integer.parseInt(txtDuracion.getText()), imagenUrl, area.getText(), ruta);
 					generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxAutores.getSelectedIndex()).getListaCanciones().add(cancionC);
-					archivoBinarioClase.escribir(cancionC, ruta);
+					archivoBinarioClase.escribir(cancionC, ruta + ".krk");
 				}
 				
 			}else {

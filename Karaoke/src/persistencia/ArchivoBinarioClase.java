@@ -18,7 +18,7 @@ public class ArchivoBinarioClase {
 	private FileInputStream fileInputStream;
 	private FileOutputStream fileOutputStream;
 	
-	public void leer(String ruta) throws IOException, ClassNotFoundException {
+	public Cancion leer(String ruta) throws IOException, ClassNotFoundException {
 		file = new File(ruta);
 		fileInputStream = new FileInputStream(file);
 		inputStream = new ObjectInputStream(fileInputStream);
@@ -26,6 +26,7 @@ public class ArchivoBinarioClase {
 		Cancion cancion;
 		cancion = (Cancion)inputStream.readObject();
 		inputStream.close();
+		return cancion;
 	}
 	
 	public void escribir(Cancion cancion, String ruta) {

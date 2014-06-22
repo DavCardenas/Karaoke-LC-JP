@@ -5,6 +5,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
@@ -15,6 +16,7 @@ import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 
+import persistencia.ArchivoBinarioClase;
 import logica.Autor;
 import logica.Cancion;
 import logica.Genero;
@@ -33,6 +35,7 @@ public class Reproduccion extends JDialog implements ItemListener{
 	private ArrayList<Genero> generos;
 	private JButton reproducir;
 	private Cancion cancionActual;
+	private ArchivoBinarioClase archivoBinarioClase;
 	
 	public final static String BTN_ABRIR = "ABRIR_ARCHIVO";
 	
@@ -87,6 +90,7 @@ public class Reproduccion extends JDialog implements ItemListener{
 		cbxCanciones.addItemListener(this);
 		
 		this.generos = genero;
+		archivoBinarioClase = new ArchivoBinarioClase();
 	}
 	
 	public void actualizarComboBoxartistas(ArrayList<Autor> listaArtistas) {
@@ -114,8 +118,17 @@ public class Reproduccion extends JDialog implements ItemListener{
 		JFileChooser jf = new JFileChooser("src/archivos/"+ (String)cbxGeneros.getSelectedItem() + "/" + (String)cbxArtistas.getSelectedItem());
 		int opcion = jf.showOpenDialog(null);
 		if (opcion == jf.APPROVE_OPTION) {
-			
 			String ruta = jf.getSelectedFile().getPath();
+			try {
+				cancionActual = archivoBinarioClase.leer(ruta.substring(0, ruta.length()-4) + ".krk");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			cancionActual.abrirCancion(ruta);
 			
 		}
 	}

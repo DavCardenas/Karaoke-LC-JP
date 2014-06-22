@@ -10,23 +10,20 @@ import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
 
-public class ArchivoPlano{
+public class ArchivoPlano implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private File file;
-	private FileReader fileReader;
-	private FileWriter fileWriter;
-	private BufferedReader bufferedReader;
+
 	
 	/**
 	 * Description
 	 * 
 	 * Esta clase se encarga de leer los archivos planos
-	 */
+	 *
 	
 	//Este metodo se utiliza para leer un archivo plano y retornar un 
 	//ArrayList con la letra de la cancion seleccionada
@@ -51,15 +48,15 @@ public class ArchivoPlano{
 		
 		return letra;
 	}*/
-	
-	public ArrayList<String> leerArchivoLetra(String ruta) {
-		file = new File(ruta);
-		fileReader = null;
+		
+	public static ArrayList<String> leerArchivoLetra(String ruta) {
+		File archivo = new File(ruta);
+		FileReader fileReader = null;
 		
 		ArrayList<String> letra = new ArrayList<String>();
 
 		try {
-			fileReader = new FileReader(file);
+			fileReader = new FileReader(archivo);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -83,10 +80,12 @@ public class ArchivoPlano{
 		return null;
 	}
 	
-	public void crearArchivoLetra(String letra, String ruta) {
-		file = new File(ruta);
+	public static void crearArchivoLetra(String letra, String ruta) {
+		File archivo = new File(ruta);
+		FileWriter fileWriter = null;
+
 		try {
-			fileWriter = new FileWriter(file);
+			fileWriter = new FileWriter(archivo);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

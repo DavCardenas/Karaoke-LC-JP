@@ -24,7 +24,6 @@ public class Cancion implements Serializable{
 	private ArrayList<String> letra;
 	private int numeroLineaActual;
 	private URL Imagen;
-	private ArchivoPlano archivoPlano;
 	
 	
 	public Cancion() {
@@ -33,7 +32,6 @@ public class Cancion implements Serializable{
 		letra = null;
 		numeroLineaActual = 0;
 		Imagen = null;
-		archivoPlano = new ArchivoPlano();
 		
 	}
 
@@ -44,7 +42,6 @@ public class Cancion implements Serializable{
 		this.letra = null;
 		this.numeroLineaActual = 0;
 		Imagen = imagen;
-		archivoPlano = new ArchivoPlano();
 	}
 
 
@@ -107,11 +104,11 @@ public class Cancion implements Serializable{
 	 * El metodo nos trae el archivo plano cargado en la persistencia, y lo almacenamos en el arrayList
 	 */
 	public void abrirCancion(String ruta){
-		letra = archivoPlano.leerArchivoLetra(ruta);
+		letra = ArchivoPlano.leerArchivoLetra(ruta);
 	}
 	
 	public void crearCancion(String pletra, String pruta) {
-		archivoPlano.crearArchivoLetra(pletra, pruta);
+		ArchivoPlano.crearArchivoLetra(pletra, pruta + ".txt");
 	}
 	
 
