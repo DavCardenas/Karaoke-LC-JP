@@ -3,6 +3,7 @@ package interfaz;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
@@ -37,6 +38,7 @@ public class Visualizacion extends JDialog implements Runnable{
 	public final static String REANUDAR = "REANUDA";
 	public final static String DETENER = "DETIENE";
 	public final static String REPRODUCIR = "REPRODUCIR";
+	public Font fuenteLb;
 
 	public Visualizacion(KaraokePrincipal karaoke, ManejadorDeEventos eventos, Cancion cancionActual) {
 		setTitle("Visualizacion");
@@ -47,6 +49,8 @@ public class Visualizacion extends JDialog implements Runnable{
 		setLayout(new BorderLayout());
 		setLocationRelativeTo(karaoke);
 
+		fuenteLb = new Font("Swis721 BlkEx BT", Font.PLAIN, 15);
+		
 		ejecucion = true;
 		pausa = false;
 		this.cancion = cancionActual;
@@ -58,8 +62,11 @@ public class Visualizacion extends JDialog implements Runnable{
 		pnlContenedor = new JPanel();
 		pnlContenedor.setLayout(new GridLayout(2, 1));
 
-		lbSuperior = new JLabel();
-		lbInferior = new JLabel();
+		lbSuperior = new JLabel("",JLabel.CENTER);
+		lbSuperior.setFont(fuenteLb);
+		
+		lbInferior = new JLabel("",JLabel.CENTER);
+		lbInferior.setFont(fuenteLb);
 
 		pnlContenedor.add(lbSuperior);
 		pnlContenedor.add(lbInferior);

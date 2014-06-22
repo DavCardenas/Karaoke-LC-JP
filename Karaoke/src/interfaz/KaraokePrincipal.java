@@ -34,6 +34,7 @@ public class KaraokePrincipal extends JFrame {
 	private JButton btnAgregarAutor;
 	private JButton btnEliminarAutor;
 	private JButton btnPlay;
+	private JButton btnGuardar;
 	private ManejadorDeEventos eventos;
 	private PanelGeneros generos;
 	private PanelArtista artista;
@@ -64,6 +65,7 @@ public class KaraokePrincipal extends JFrame {
 	private EliminarCancion eliminarCancion;
 	private Visualizacion visualizacion;
 	
+	
 
 	public static final String COMANDO_BOTON_AGREGAR_CANCION = "AGREGAR_CANCION";
 	public static final String COMANDO_BOTON_ELIMINAR_CANCION = "ELIMINAR_CANCION";
@@ -74,6 +76,7 @@ public class KaraokePrincipal extends JFrame {
 	public static final String COMANDO_BOTON_PLAY = "PLAY";
 	public static final String COMANDO_ABOUT = "ABOUT";
 	public static final String COMANDO_SALIR = "SALIR";
+	public static final String COMANDO_GUARDAR = "GUARDAR";
 
 	public KaraokePrincipal() {
 
@@ -197,6 +200,14 @@ public class KaraokePrincipal extends JFrame {
 		btnPlay.setActionCommand(COMANDO_BOTON_PLAY);
 		btnPlay.setToolTipText("Play");
 		
+		btnGuardar = new JButton();
+		btnGuardar.setIcon(new ImageIcon(getClass().getResource(
+				"/Img/Guardar.png")));
+		btnGuardar.setFocusable(false);
+		btnGuardar.addActionListener(eventos);
+		btnGuardar.setActionCommand(COMANDO_GUARDAR);
+		btnGuardar.setToolTipText("Guardar");
+		
 		
 
 		// M E N U    B A R 
@@ -294,6 +305,8 @@ public class KaraokePrincipal extends JFrame {
 		toolBar.add(btnEliminarGenero);
 		toolBar.addSeparator();
 		toolBar.add(btnPlay);
+		toolBar.addSeparator();
+		toolBar.add(btnGuardar);
 
 		
 		setJMenuBar(menuBar);
