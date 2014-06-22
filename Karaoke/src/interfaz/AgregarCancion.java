@@ -33,6 +33,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
+import persistencia.ArchivoBinarioClase;
 import logica.Autor;
 import logica.Cancion;
 import logica.Genero;
@@ -64,6 +65,7 @@ public class AgregarCancion extends JDialog implements ItemListener{
 	private Karaoke lKaraoke;
 	private Cancion cancionC;
 	private URL imagenUrl;
+	private ArchivoBinarioClase archivoBinarioClase;
 	
 	
 	
@@ -150,6 +152,8 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		
 		generos = Lgeneros;
 		this.lKaraoke = lKaraoke;
+		
+		archivoBinarioClase = new ArchivoBinarioClase();
 	}
 
 	public void setCbxAutores(JComboBox<String> cbxAutores) {
@@ -244,6 +248,7 @@ public class AgregarCancion extends JDialog implements ItemListener{
 					String ruta = jf.getSelectedFile().getPath();
 					cancionC = lKaraoke.crearCancion(txtNombreCancion.getText(), Integer.parseInt(txtDuracion.getText()), imagenUrl, area.getText(), ruta);
 					generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxAutores.getSelectedIndex()).getListaCanciones().add(cancionC);
+					archivoBinarioClase.escribir(cancionC, ruta);
 				}
 				
 			}else {

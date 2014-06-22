@@ -1,13 +1,18 @@
 package logica;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 
 import persistencia.ArchivoPlano;
 
-public class Cancion {
+public class Cancion implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 *Description
 	 *
@@ -101,7 +106,7 @@ public class Cancion {
 	/**
 	 * El metodo nos trae el archivo plano cargado en la persistencia, y lo almacenamos en el arrayList
 	 */
-	public void abrircancion(String ruta){
+	public void abrirCancion(String ruta){
 		letra = archivoPlano.leerArchivoLetra(ruta);
 	}
 	

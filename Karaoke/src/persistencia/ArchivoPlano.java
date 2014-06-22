@@ -5,11 +5,17 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
 
-public class ArchivoPlano {
+public class ArchivoPlano{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private File file;
 	private FileReader fileReader;

@@ -32,6 +32,7 @@ public class Reproduccion extends JDialog implements ItemListener{
 	private JComboBox<String> cbxCanciones;
 	private ArrayList<Genero> generos;
 	private JButton reproducir;
+	private Cancion cancionActual;
 	
 	public final static String BTN_ABRIR = "ABRIR_ARCHIVO";
 	
@@ -113,7 +114,9 @@ public class Reproduccion extends JDialog implements ItemListener{
 		JFileChooser jf = new JFileChooser("src/archivos/"+ (String)cbxGeneros.getSelectedItem() + "/" + (String)cbxArtistas.getSelectedItem());
 		int opcion = jf.showOpenDialog(null);
 		if (opcion == jf.APPROVE_OPTION) {
+			
 			String ruta = jf.getSelectedFile().getPath();
+			
 		}
 	}
 
