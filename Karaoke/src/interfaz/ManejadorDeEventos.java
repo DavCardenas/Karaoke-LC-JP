@@ -51,6 +51,7 @@ public class ManejadorDeEventos implements ActionListener{
 			
 		case AgregarGenero.SUBIR_IMAGEN_GENERO:
 			karaoke.getAgregarGenero().seleccionarArchivo();
+			karaoke.getGeneros().imagenListas(karaoke.getAgregarGenero().getGeneros());
 			break;
 			
 		case AgregarGenero.ACEPTAR:

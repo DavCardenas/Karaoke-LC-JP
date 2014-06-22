@@ -1,9 +1,13 @@
 package interfaz;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -20,7 +24,7 @@ public class ListaGeneroImagen extends JLabel implements ListCellRenderer{
 	public ListaGeneroImagen(ArrayList<Genero> generos) {
 		icons = new ArrayList<>();
 		lista = new Hashtable<>();
-		iconoNulo = new ImageIcon(getClass().getResource("/Img/AddGeneros.png"));
+		iconoNulo = new ImageIcon(getClass().getResource("/Img/AddGenero.png"));
 		
 			for (Genero genero : generos) {
 				if (genero != null) {
@@ -36,7 +40,12 @@ public class ListaGeneroImagen extends JLabel implements ListCellRenderer{
 				lista.put(genero.getNombre(), icons.get(i));
 				i++;
 			}
-		
+			
+			setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+			setHorizontalAlignment(JLabel.CENTER);
+			Font fuenteLista = new Font("Swis721 BlkEx BT", Font.PLAIN, 15);
+			setForeground(Color.WHITE);
+			setFont(fuenteLista);
 	}
 
 	@Override

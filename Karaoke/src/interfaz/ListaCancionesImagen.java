@@ -38,6 +38,8 @@ public class ListaCancionesImagen extends JLabel implements ListCellRenderer{
 				lista.put(cancion.getNombre(), icons.get(i));
 				i++;
 			}
+			
+			this.setHorizontalAlignment(JLabel.CENTER);
 		
 	}
 
