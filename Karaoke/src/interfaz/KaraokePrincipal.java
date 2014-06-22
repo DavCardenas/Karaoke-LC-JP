@@ -374,6 +374,7 @@ public class KaraokePrincipal extends JFrame {
 
 	public void actualizarListaGeneros() {
 		generos.actualizarLista(agregarGenero.getGeneros());
+		eliminarGenero.actualizarComboBoxGeneros(agregarGenero.getGeneros());
 		
 		
 	}
@@ -381,6 +382,7 @@ public class KaraokePrincipal extends JFrame {
 		cancion.actualizarLista(agregarCancion.getCanciones());
 	}
 	public void eliminarGenero(){
+		
 		eliminarGenero.eliminarGenero(agregarGenero.getGeneros());
 }
 	
