@@ -29,6 +29,10 @@ public class ManejadorDeEventos implements ActionListener{
 		case KaraokePrincipal.COMANDO_BOTON_AGREGAR_GENERO:
 			karaoke.agregarGenero();
 			break;
+			
+		case KaraokePrincipal.COMANDO_BOTON_ELIMINAR_GENERO:
+			karaoke.mostrarEliminarGenero();
+			break;
 		case KaraokePrincipal.COMANDO_BOTON_AGREGAR_AUTOR:
 			karaoke.agregarAutor();
 			break;
@@ -48,6 +52,12 @@ public class ManejadorDeEventos implements ActionListener{
 			karaoke.actualizarListaGeneros();
 			karaoke.getAgregarGenero().actulizarCampos();
 			break;
+			
+		case EliminarGenero.ELIMINAR_GENERO:
+			karaoke.eliminarGenero();
+			karaoke.actualizarListaGeneros();
+			break;
+			
 		case AgregarAutor.ACEPTAR_AGREGAR_AUTOR:
 			karaoke.getAgregarAutor().agregarAutor();
 			karaoke.actualizarListasArtistas();

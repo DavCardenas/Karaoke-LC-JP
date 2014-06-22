@@ -44,6 +44,7 @@ public class KaraokePrincipal extends JFrame {
 	private AgregarAutor agregarAutor;
 	private Reproduccion reproduccion;
 	private JPanel contenedorListas;
+	private EliminarGenero eliminarGenero;
 	private JMenuBar menuBar;
 	private JMenu menuArchivo;
 	private JMenuItem itemSalir;
@@ -117,7 +118,7 @@ public class KaraokePrincipal extends JFrame {
 		cancion = new PanelCancion();
 		about = new JDialogAbout(eventos, this);
 
-
+		eliminarGenero = new EliminarGenero(this, eventos);
 		agregarGenero = new AgregarGenero(this, eventos);
 		agregarAutor = new AgregarAutor(this, eventos, agregarGenero.getGeneros());
 		agregarCancion = new AgregarCancion(this, eventos, agregarGenero.getGeneros(), lKaraoke);
@@ -298,6 +299,9 @@ public class KaraokePrincipal extends JFrame {
 		about.setVisible(true);
 		
 	}
+	public void mostrarEliminarGenero() {
+		eliminarGenero.setVisible(true);
+	}
 	
 	public AgregarCancion getAgregarCancion() {
 		return agregarCancion;
@@ -309,6 +313,14 @@ public class KaraokePrincipal extends JFrame {
 
 	public AgregarGenero getAgregarGenero() {
 		return agregarGenero;
+	}
+
+	public EliminarGenero getEliminarGenero() {
+		return eliminarGenero;
+	}
+
+	public void setEliminarGenero(EliminarGenero eliminarGenero) {
+		this.eliminarGenero = eliminarGenero;
 	}
 
 	public void setAgregarGenero(AgregarGenero agregarGenero) {
@@ -362,10 +374,15 @@ public class KaraokePrincipal extends JFrame {
 
 	public void actualizarListaGeneros() {
 		generos.actualizarLista(agregarGenero.getGeneros());
+		
+		
 	}
 	public void actualizarListaCanciones(){
 		cancion.actualizarLista(agregarCancion.getCanciones());
 	}
-
+	public void eliminarGenero(){
+		eliminarGenero.eliminarGenero(agregarGenero.getGeneros());
+}
+	
 
 }
