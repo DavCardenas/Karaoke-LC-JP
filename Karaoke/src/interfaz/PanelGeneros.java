@@ -25,7 +25,7 @@ public class PanelGeneros extends JPanel implements ListSelectionListener{
 	private JScrollPane jScrollPaneS;
 	private ArrayList<Genero> generos;
 	private PanelArtista panelArtista;
-	
+	private int indiceGenero;
 	
 	public PanelGeneros(ArrayList<Genero> generos, PanelArtista panelArtista) {
 		
@@ -66,8 +66,21 @@ public class PanelGeneros extends JPanel implements ListSelectionListener{
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		if (e.getSource() == jList) {
-			panelArtista.actualizarLista(generos.get(jList.getSelectedIndex()).getListaAutores());
+			if (jList.getSelectedIndex() >= 0) {
+				panelArtista.actualizarLista(generos.get(jList.getSelectedIndex()).getListaAutores());
+				indiceGenero = jList.getSelectedIndex();
+			}else {
+				indiceGenero = 0;
+			}
 		}
+	}
+	
+	public void setIndiceGenero(int indiceGenero) {
+		this.indiceGenero = indiceGenero;
+	}
+	
+	public int getIndiceGenero() {
+		return indiceGenero;
 	}
 	
 }

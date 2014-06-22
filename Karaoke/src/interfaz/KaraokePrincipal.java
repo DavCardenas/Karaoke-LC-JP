@@ -127,10 +127,13 @@ public class KaraokePrincipal extends JFrame {
 		contenedorListas = new JPanel();
 		contenedorListas.setLayout(new GridLayout(1,3));
 		
-		artista = new PanelArtista();
+		
 		cancion = new PanelCancion();
 		about = new JDialogAbout(eventos, this);
+		artista = new PanelArtista(agregarGenero.getGeneros(),cancion);
 		generos = new PanelGeneros(agregarGenero.getGeneros(), artista);
+		artista.setPanelGeneros(generos);
+		
 		// T O L B A R
 		toolBar = new JToolBar(("Menu de registro"));
 		toolBar.setOrientation(JToolBar.HORIZONTAL);
