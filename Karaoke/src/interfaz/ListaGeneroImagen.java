@@ -16,7 +16,7 @@ import javax.swing.ListCellRenderer;
 
 import logica.Genero;
 
-public class ListaGeneroImagen extends JLabel implements ListCellRenderer<Object>, Serializable{
+public class ListaGeneroImagen extends JLabel implements ListCellRenderer, Serializable{
 	
 	/**
 	 * 

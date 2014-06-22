@@ -16,7 +16,7 @@ import javax.swing.ListCellRenderer;
 import logica.Autor;
 import logica.Genero;
 
-public class ListaArtistasImagen extends JLabel implements ListCellRenderer<Object>,Serializable{
+public class ListaArtistasImagen extends JLabel implements ListCellRenderer,Serializable{
 	
 	/**
 	 * 

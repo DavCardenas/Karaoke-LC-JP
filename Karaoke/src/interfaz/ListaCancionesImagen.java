@@ -17,7 +17,7 @@ import logica.Autor;
 import logica.Cancion;
 import logica.Genero;
 
-public class ListaCancionesImagen extends JLabel implements ListCellRenderer<Object>, Serializable{
+public class ListaCancionesImagen extends JLabel implements ListCellRenderer, Serializable{
 	
 	/**
 	 * 
