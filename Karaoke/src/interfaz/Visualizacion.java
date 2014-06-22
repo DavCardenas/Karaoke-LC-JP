@@ -120,7 +120,6 @@ public class Visualizacion extends JDialog implements Runnable{
 
 	public void VisualizarLetra(){
 		if (cancion.getLetra() != null) {
-	System.out.println("Dentro");
 			aux1 = cancion.mostrarLetra();
 			lbSuperior.setText(aux1);
 			try {
@@ -134,12 +133,12 @@ public class Visualizacion extends JDialog implements Runnable{
 				lbSuperior.setText(aux2);
 				lbSuperior.updateUI();
 			}else{
-				JOptionPane.showMessageDialog(null, "Se ha terminado la cancion", "Error", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Se ha terminado la cancion", "Alerta", JOptionPane.INFORMATION_MESSAGE);
 				detener();
 			}
 			
 		} else{
-		JOptionPane.showMessageDialog(null, "No se ha cargado nada", "Error", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, "Terminado", "Alerta", JOptionPane.ERROR_MESSAGE);
 			detener();
 		}
 
@@ -151,8 +150,9 @@ public class Visualizacion extends JDialog implements Runnable{
 			VisualizarLetra();
 			while (pausa) {
 				int i = 0;
-				System.out.println("Pausado"+i);
-			}
+				System.out.println("Pausa "+i);
+				i++;
+				}
 		}
 	}
 
