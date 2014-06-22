@@ -82,6 +82,11 @@ public class ManejadorDeEventos implements ActionListener{
 		case KaraokePrincipal.COMANDO_BOTON_ELIMINAR_CANCION:
 			karaoke.eliminarCancion();
 			break;
+			
+		case Reproduccion.BTN_REPRODUCIR:
+			karaoke.visualizar();
+			break;
+			
 		case EliminarAutor.BTN_ELIMINAR_AUTOR:
 			karaoke.getEliminarAutor().eliminarAutor();
 			karaoke.getEliminarAutor().actualizarArtistasEliminados();
