@@ -2,6 +2,7 @@ package interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.io.Serializable;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,7 +19,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import logica.Karaoke;
 
-public class KaraokePrincipal extends JFrame {
+public class KaraokePrincipal extends JFrame implements Serializable{
 
 	/**
 	 * 
