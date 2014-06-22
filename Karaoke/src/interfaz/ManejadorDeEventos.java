@@ -112,6 +112,7 @@ public class ManejadorDeEventos implements ActionListener{
 		case Visualizacion.DETENER:
 			karaoke.getVisualizacion().detener();
 		break;
+		
 		default:
 			break;
 		}
