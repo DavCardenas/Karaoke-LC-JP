@@ -164,6 +164,8 @@ public class AgregarGenero extends JDialog{
 				e.printStackTrace();
 			}
 			this.actualizarImagen(url);		
+		}else if (opcion == JFileChooser.CANCEL_OPTION) {
+			imagenUrl = null;
 		}
 	}
 	

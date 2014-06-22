@@ -26,6 +26,7 @@ public class PanelGeneros extends JPanel implements ListSelectionListener{
 	private ArrayList<Genero> generos;
 	private PanelArtista panelArtista;
 	private int indiceGenero;
+	private ListaGeneroImagen lista;
 	
 	public PanelGeneros(ArrayList<Genero> generos, PanelArtista panelArtista) {
 		
@@ -49,6 +50,13 @@ public class PanelGeneros extends JPanel implements ListSelectionListener{
 		this.generos = generos;
 		this.panelArtista = panelArtista;
 		
+	}
+	
+	public void imagenListas(ArrayList<Genero> generos) {
+		if (!generos.isEmpty()) {
+			lista = new ListaGeneroImagen(generos);
+			this.jList.setCellRenderer(lista);
+		}
 	}
 	
 	public void actualizarLista(ArrayList<Genero> listaActulizada) {

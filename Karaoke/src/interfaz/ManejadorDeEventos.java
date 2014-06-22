@@ -57,6 +57,7 @@ public class ManejadorDeEventos implements ActionListener{
 			karaoke.getAgregarGenero().agregarGenero();
 			karaoke.actualizarListaGeneros();
 			karaoke.getAgregarGenero().actulizarCampos();
+			karaoke.getGeneros().imagenListas(karaoke.getAgregarGenero().getGeneros());
 			break;
 			
 		case EliminarGenero.ELIMINAR_GENERO:

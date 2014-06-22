@@ -1,9 +1,6 @@
 package interfaz;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
@@ -87,7 +84,7 @@ public class KaraokePrincipal extends JFrame {
 		setLayout(new BorderLayout());
 		setResizable(false);
 		setIconImage(new ImageIcon(getClass().getResource("/Img/nota.png")).getImage());
-		
+
 
 		UIManager.put("Label.font",	UIManager.getFont("Label.font").deriveFont((float) 16.0));
 		SwingUtilities.updateComponentTreeUI(this);
@@ -129,7 +126,8 @@ public class KaraokePrincipal extends JFrame {
 		visualizacion = new Visualizacion(this, eventos,reproduccion.getCancionActual());
 
 		
-		
+		contenedorListas = new JPanel();
+		contenedorListas.setLayout(new GridLayout(1,3));
 		
 		
 		cancion = new PanelCancion();
@@ -298,21 +296,14 @@ public class KaraokePrincipal extends JFrame {
 		toolBar.addSeparator();
 		toolBar.add(btnPlay);
 
-		contenedorListas = new JPanel();
-		contenedorListas.setLayout(new GridLayout(1,3));
-				
+		
 		setJMenuBar(menuBar);
 		
 		add(toolBar, BorderLayout.NORTH);
 		contenedorListas.add(generos);
 		contenedorListas.add(artista);
 		contenedorListas.add(cancion);
-		
 		add(contenedorListas, BorderLayout.CENTER);
-		
-	
-		
-		
 
 	}
 	
@@ -366,6 +357,14 @@ public class KaraokePrincipal extends JFrame {
 
 	public Visualizacion getVisualizacion() {
 		return visualizacion;
+	}
+	
+	public void setGeneros(PanelGeneros generos) {
+		this.generos = generos;
+	}
+	
+	public PanelGeneros getGeneros() {
+		return generos;
 	}
 
 	public void setVisualizacion(Visualizacion visualizacion) {
