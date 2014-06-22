@@ -123,7 +123,6 @@ public class KaraokePrincipal extends JFrame {
 		reproduccion = new Reproduccion(this, eventos, agregarGenero.getGeneros());
 		eliminarAutor = new EliminarAutor(this, eventos, agregarGenero.getGeneros());
 		eliminarCancion = new EliminarCancion(this, eventos, agregarGenero.getGeneros());
-		visualizacion = new Visualizacion(this, eventos,reproduccion.getCancionActual());
 
 		
 		contenedorListas = new JPanel();
@@ -306,6 +305,11 @@ public class KaraokePrincipal extends JFrame {
 		add(contenedorListas, BorderLayout.CENTER);
 
 	}
+	
+	public void visualizarCancion() {
+		visualizacion = new Visualizacion(this, eventos,reproduccion.getCancionActual());
+	}
+	
 	
 	public void MostrarAbout() {
 		about.setVisible(true);

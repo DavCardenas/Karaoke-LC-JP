@@ -295,7 +295,7 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		{
 			remove( foto );
 			foto = new JLabel( new ImageIcon( cargarImagen( imagen ) ) );
-			GridBagConstraints gbc = new GridBagConstraints(2, 9, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
+			GridBagConstraints gbc = new GridBagConstraints(0, 4, 3, 1, 3, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
 			add( foto, gbc );
 			//refresca el Jlabel con el UpdateUI();
 			foto.updateUI();
