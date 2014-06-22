@@ -3,6 +3,7 @@ package interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -62,6 +63,7 @@ public class PanelCancion extends JPanel{
 		jScrollPaneS.getViewport().setBackground (new Color (0.0f,0.0f,0.0f,0.0f));
 		pnlContenedor.add(jScrollPaneS,BorderLayout.CENTER);
 		
+		jList.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		add(pnlContenedor);
 	}
 	

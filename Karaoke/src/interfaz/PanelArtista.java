@@ -2,6 +2,7 @@ package interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -71,6 +72,7 @@ public class PanelArtista extends JPanel implements ListSelectionListener{
 		
 		add(pnlContenedor);
 		jList.addListSelectionListener(this);
+		jList.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		
 	}
 	

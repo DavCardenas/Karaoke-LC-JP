@@ -2,6 +2,7 @@ package interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -71,6 +72,7 @@ public class PanelGeneros extends JPanel implements ListSelectionListener{
 		this.generos = generos;
 		this.panelArtista = panelArtista;
 		
+		jList.setCursor(new Cursor(Cursor.HAND_CURSOR));		
 	}
 	
 	public void imagenListas(ArrayList<Genero> generos) {
