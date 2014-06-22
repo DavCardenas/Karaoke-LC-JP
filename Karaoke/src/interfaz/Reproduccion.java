@@ -25,13 +25,10 @@ public class Reproduccion extends JDialog implements ItemListener{
 
 	private JLabel lbGenero;
 	private JLabel lbArtista;
-	private JLabel lbCancion;
 	private DefaultComboBoxModel<String> modeloGenero;
 	private DefaultComboBoxModel<String> modeloArtista;
-	private DefaultComboBoxModel<String> modeloCancion;
 	private JComboBox<String> cbxGeneros;
 	private JComboBox<String> cbxArtistas;
-	private JComboBox<String> cbxCanciones;
 	private ArrayList<Genero> generos;
 	private JButton reproducir;
 	private Cancion cancionActual;
@@ -42,7 +39,7 @@ public class Reproduccion extends JDialog implements ItemListener{
 	public Reproduccion(KaraokePrincipal karaoke, ManejadorDeEventos manejador, ArrayList<Genero> genero) {
 		
 		setTitle("Reproducir");
-		setSize(600, 400);
+		setSize(400, 400);
 		setModal(true);
 		setResizable(false);
 		setIconImage(new ImageIcon(getClass().getResource("/img/play.png")).getImage());
@@ -70,16 +67,7 @@ public class Reproduccion extends JDialog implements ItemListener{
 		gbc = new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 100, 0);
 		add(cbxArtistas, gbc);
 		
-		lbCancion = new JLabel("Canciones");
-		gbc = new GridBagConstraints(0, 4, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
-		add(lbCancion, gbc);
-		
-		modeloCancion = new DefaultComboBoxModel<>();
-		cbxCanciones = new JComboBox<>(modeloCancion);
-		gbc = new GridBagConstraints(0, 5, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 100, 0);
-		add(cbxCanciones, gbc);
-		
-		reproducir = new JButton("Reproducir");
+		reproducir = new JButton("Abrir");
 		reproducir.setActionCommand(BTN_ABRIR);
 		reproducir.addActionListener(manejador);
 		gbc = new GridBagConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 0, 0);
@@ -87,12 +75,19 @@ public class Reproduccion extends JDialog implements ItemListener{
 		
 		cbxGeneros.addItemListener(this);
 		cbxArtistas.addItemListener(this);
-		cbxCanciones.addItemListener(this);
-		
+				
 		this.generos = genero;
 		archivoBinarioClase = new ArchivoBinarioClase();
 	}
 	
+	public Cancion getCancionActual() {
+		return cancionActual;
+	}
+
+	public void setCancionActual(Cancion cancionActual) {
+		this.cancionActual = cancionActual;
+	}
+
 	public void actualizarComboBoxartistas(ArrayList<Autor> listaArtistas) {
 		modeloArtista.removeAllElements();
 		for (Autor autores: listaArtistas) {
@@ -107,12 +102,7 @@ public class Reproduccion extends JDialog implements ItemListener{
 		}
 	}
 	
-	public void actualizarComboBoxCanciones(ArrayList<Cancion> ListaCanciones) {
-		modeloCancion.removeAllElements();
-		for (Cancion cancion: ListaCanciones) {
-			modeloCancion.addElement(cancion.getNombre());
-		}
-	}
+	
 	
 	public void abrirArchivo() {
 		JFileChooser jf = new JFileChooser("src/archivos/"+ (String)cbxGeneros.getSelectedItem() + "/" + (String)cbxArtistas.getSelectedItem());
@@ -142,9 +132,7 @@ public class Reproduccion extends JDialog implements ItemListener{
 			}
 		}else if (e.getSource() ==  cbxArtistas) {
 			int id = cbxArtistas.getSelectedIndex();
-			if (id >= 0) {
-				actualizarComboBoxCanciones(generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(id).getListaCanciones());
-			}
+			
 		}
 	}
 	

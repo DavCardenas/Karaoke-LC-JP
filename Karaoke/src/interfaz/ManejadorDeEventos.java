@@ -85,6 +85,8 @@ public class ManejadorDeEventos implements ActionListener{
 			
 		case Reproduccion.BTN_ABRIR:
 			karaoke.getReproduccion().abrirArchivo();
+			karaoke.visualizar();
+			karaoke.getVisualizacion().iniciar();
 			break;
 			
 		case EliminarAutor.BTN_ELIMINAR_AUTOR:
@@ -98,7 +100,18 @@ public class ManejadorDeEventos implements ActionListener{
 			karaoke.getEliminarCancion().actualizarCancionesEliminados();
 			karaoke.actualizarListasCanciones();
 			break;
+			
+		case Visualizacion.PAUSAR:
+			karaoke.getVisualizacion().pausar();
+		break;
 		
+		case Visualizacion.REANUDAR:
+			karaoke.getVisualizacion().reanudar();
+		break;
+		
+		case Visualizacion.DETENER:
+			karaoke.getVisualizacion().detener();
+		break;
 		default:
 			break;
 		}

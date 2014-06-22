@@ -123,7 +123,7 @@ public class KaraokePrincipal extends JFrame {
 		reproduccion = new Reproduccion(this, eventos, agregarGenero.getGeneros());
 		eliminarAutor = new EliminarAutor(this, eventos, agregarGenero.getGeneros());
 		eliminarCancion = new EliminarCancion(this, eventos, agregarGenero.getGeneros());
-		visualizacion = new Visualizacion(this, eventos);
+		visualizacion = new Visualizacion(this, eventos,reproduccion.getCancionActual());
 
 		
 		contenedorListas = new JPanel();
@@ -355,6 +355,14 @@ public class KaraokePrincipal extends JFrame {
 		return agregarAutor;
 	}
 
+	public Visualizacion getVisualizacion() {
+		return visualizacion;
+	}
+
+	public void setVisualizacion(Visualizacion visualizacion) {
+		this.visualizacion = visualizacion;
+	}
+
 	public void setAgregarAutor(AgregarAutor agregarAutor) {
 		this.agregarAutor = agregarAutor;
 	}
@@ -391,7 +399,6 @@ public class KaraokePrincipal extends JFrame {
 			if (!agregarGenero.getGeneros().get(0).getListaAutores().isEmpty()) {
 				reproduccion.actualizarComboBoxGeneros(agregarGenero.getGeneros());
 				reproduccion.actualizarComboBoxartistas(agregarGenero.getGeneros().get(0).getListaAutores());
-				reproduccion.actualizarComboBoxCanciones(agregarGenero.getGeneros().get(0).getListaAutores().get(0).getListaCanciones());
 				reproduccion.setVisible(true);
 			}else {
 				JOptionPane.showMessageDialog(this, "Agregue un genero y un autor como minimo");
