@@ -518,6 +518,10 @@ public class KaraokePrincipal extends JFrame{
 		agregarAutor.setGeneros(generos);
 		agregarCancion.setGeneros(generos);
 		agregarGenero.setGeneros(generos);
+		reproduccion.setGeneros(generos);
+		eliminarAutor.setGeneros(generos);
+		eliminarCancion.setGeneros(generos);
+		eliminarGenero.setGeneros(generos);
 	}
 	
 }

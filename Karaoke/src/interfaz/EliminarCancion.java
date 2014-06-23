@@ -91,6 +91,12 @@ public class EliminarCancion extends JDialog implements ItemListener{
 		
 		this.generos = genero;
 	}
+	public ArrayList<Genero> getGeneros() {
+		return generos;
+	}
+	public void setGeneros(ArrayList<Genero> generos) {
+		this.generos = generos;
+	}
 	public void eliminarCancion(){
 		if (!generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxArtistas.getSelectedIndex()).getListaCanciones().isEmpty()) {
 			generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().get(cbxArtistas.getSelectedIndex()).getListaCanciones().remove(cbxCanciones.getSelectedIndex());

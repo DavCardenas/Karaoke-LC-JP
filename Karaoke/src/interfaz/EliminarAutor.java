@@ -77,6 +77,14 @@ public class EliminarAutor extends JDialog implements ItemListener{
 		cbxGeneros.addItemListener(this);
 	}
 	
+	public ArrayList<Genero> getGeneros() {
+		return generos;
+	}
+
+	public void setGeneros(ArrayList<Genero> generos) {
+		this.generos = generos;
+	}
+
 	public void eliminarAutor() {
 		generos.get(cbxGeneros.getSelectedIndex()).getListaAutores().remove(cbxArtistas.getSelectedIndex());
 	}

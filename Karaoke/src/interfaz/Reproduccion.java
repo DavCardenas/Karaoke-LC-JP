@@ -35,6 +35,8 @@ public class Reproduccion extends JDialog implements ItemListener{
 	private JComboBox<String> cbxGeneros;
 	private JComboBox<String> cbxArtistas;
 	private ArrayList<Genero> generos;
+	
+
 	private JButton reproducir;
 	private Cancion cancionActual;
 	private ArchivoBinarioClase archivoBinarioClase;
@@ -91,6 +93,13 @@ public class Reproduccion extends JDialog implements ItemListener{
 
 	public void setCancionActual(Cancion cancionActual) {
 		this.cancionActual = cancionActual;
+	}
+	public ArrayList<Genero> getGeneros() {
+		return generos;
+	}
+
+	public void setGeneros(ArrayList<Genero> generos) {
+		this.generos = generos;
 	}
 
 	public void actualizarComboBoxartistas(ArrayList<Autor> listaArtistas) {
