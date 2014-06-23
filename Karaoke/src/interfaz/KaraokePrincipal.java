@@ -517,6 +517,7 @@ public class KaraokePrincipal extends JFrame{
 		actualizarListasCanciones();
 		agregarAutor.setGeneros(generos);
 		agregarCancion.setGeneros(generos);
+		agregarGenero.setGeneros(generos);
 	}
 	
 }
