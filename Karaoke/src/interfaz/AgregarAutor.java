@@ -98,6 +98,14 @@ public class AgregarAutor extends JDialog{
 
 		generos = ListaGeneros;
 	}
+	
+	public void setGeneros(ArrayList<Genero> generos) {
+		this.generos = generos;
+	}
+	
+	public ArrayList<Genero> getGeneros() {
+		return generos;
+	}
 
 	public boolean camposVacios() {
 		boolean vacios = false;

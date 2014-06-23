@@ -159,19 +159,21 @@ public class AgregarCancion extends JDialog implements ItemListener{
 		archivoBinarioClase = new ArchivoBinarioClase();
 	}
 	
+	public void setGeneros(ArrayList<Genero> generos) {
+		this.generos = generos;
+	}
 	
+	public ArrayList<Genero> getGeneros() {
+		return generos;
+	}
 
 	public int getGeneroSeleccionado() {
 		return generoSeleccionado;
 	}
 
-
-
 	public void setGeneroSeleccionado(int generoSeleccionado) {
 		this.generoSeleccionado = generoSeleccionado;
 	}
-
-
 
 	public int getArtistaSeleccionado() {
 		return artistaSeleccionado;

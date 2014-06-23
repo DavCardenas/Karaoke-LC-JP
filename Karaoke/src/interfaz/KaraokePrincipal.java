@@ -3,6 +3,7 @@ package interfaz;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +19,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import persistencia.ArchivoBinarioKaraoke;
+import logica.Genero;
 import logica.Karaoke;
 
 public class KaraokePrincipal extends JFrame{
@@ -507,7 +509,14 @@ public class KaraokePrincipal extends JFrame{
 	public void actualizarListaGeneros() {
 		generos.actualizarLista(agregarGenero.getGeneros());
 		
-		
+	}
+	
+	public void actualizarTodasLasListas(ArrayList<Genero> generos) {
+		actualizarListaGeneros();
+		actualizarListasArtistas();
+		actualizarListasCanciones();
+		agregarAutor.setGeneros(generos);
+		agregarCancion.setGeneros(generos);
 	}
 	
 }

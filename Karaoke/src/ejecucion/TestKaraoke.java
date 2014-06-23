@@ -3,6 +3,7 @@ package ejecucion;
 
 import java.io.IOException;
 
+import logica.Autor;
 import logica.Genero;
 import logica.Karaoke;
 import persistencia.ArchivoBinarioKaraoke;
@@ -16,9 +17,7 @@ public class TestKaraoke {
 		try {
 			Karaoke Lkaraoke = archivo.leer("src/archivos/karaoke");
 			karaoke.getAgregarGenero().setGeneros(Lkaraoke.getListaGeneros());
-			for (Genero genero : Lkaraoke.getListaGeneros()) {
-				System.out.println(genero);
-			}
+			karaoke.actualizarTodasLasListas(Lkaraoke.getListaGeneros());
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -26,6 +25,7 @@ public class TestKaraoke {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		karaoke.setVisible(true);
 	}
 
