@@ -155,6 +155,9 @@ public class ManejadorDeEventos implements ActionListener {
 		case Visualizacion.REPRODUCIR:
 			karaoke.getVisualizacion().iniciar();
 			break;
+		case KaraokePrincipal.COMANDO_GUARDAR:
+			karaoke.guardarClase();
+			break;
 
 		default:
 			break;

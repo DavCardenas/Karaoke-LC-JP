@@ -11,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import logica.Cancion;
+import logica.Karaoke;
 
 public class ArchivoBinarioKaraoke {
 
@@ -20,18 +21,18 @@ public class ArchivoBinarioKaraoke {
 	private FileInputStream fileInputStream;
 	private FileOutputStream fileOutputStream;
 	
-	public KaraokePrincipal leer(String ruta) throws IOException, ClassNotFoundException {
+	public Karaoke leer(String ruta) throws IOException, ClassNotFoundException {
 		file = new File(ruta);
 		fileInputStream = new FileInputStream(file);
 		inputStream = new ObjectInputStream(fileInputStream);
 		
-		KaraokePrincipal karaoke;
-		karaoke = (KaraokePrincipal)inputStream.readObject();
+		Karaoke karaoke;
+		karaoke = (Karaoke)inputStream.readObject();
 		inputStream.close();
 		return karaoke;
 	}
 	
-	public void escribir(KaraokePrincipal karaoke, String ruta) {
+	public void escribir(Karaoke karaoke, String ruta) {
 		file = new File(ruta);
 		try {
 			fileOutputStream = new FileOutputStream(file);

@@ -17,9 +17,10 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import persistencia.ArchivoBinarioKaraoke;
 import logica.Karaoke;
 
-public class KaraokePrincipal extends JFrame implements Serializable{
+public class KaraokePrincipal extends JFrame{
 
 	/**
 	 * 
@@ -65,7 +66,7 @@ public class KaraokePrincipal extends JFrame implements Serializable{
 	private EliminarAutor eliminarAutor;
 	private EliminarCancion eliminarCancion;
 	private Visualizacion visualizacion;
-	
+	private ArchivoBinarioKaraoke archivoBinarioKaraoke;
 	
 
 	public static final String COMANDO_BOTON_AGREGAR_CANCION = "AGREGAR_CANCION";
@@ -317,7 +318,13 @@ public class KaraokePrincipal extends JFrame implements Serializable{
 		contenedorListas.add(artista);
 		contenedorListas.add(cancion);
 		add(contenedorListas, BorderLayout.CENTER);
+		
+		archivoBinarioKaraoke = new ArchivoBinarioKaraoke();
 
+	}
+	
+	public void guardarClase() {
+		archivoBinarioKaraoke.escribir(lKaraoke, "src/archivos/karaoke");
 	}
 	
 	public void visualizarCancion() {
