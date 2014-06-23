@@ -128,6 +128,8 @@ public class KaraokePrincipal extends JFrame{
 		reproduccion = new Reproduccion(this, eventos, agregarGenero.getGeneros());
 		eliminarAutor = new EliminarAutor(this, eventos, agregarGenero.getGeneros());
 		eliminarCancion = new EliminarCancion(this, eventos, agregarGenero.getGeneros());
+		
+		lKaraoke.setListaGeneros(agregarGenero.getGeneros());
 
 		
 		contenedorListas = new JPanel();
