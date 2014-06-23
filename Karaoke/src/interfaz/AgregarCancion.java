@@ -40,7 +40,7 @@ import logica.Cancion;
 import logica.Genero;
 import logica.Karaoke;
 
-public class AgregarCancion extends JDialog implements ItemListener, Serializable{
+public class AgregarCancion extends JDialog implements ItemListener{
 
 	/**
 	 * 

@@ -23,7 +23,7 @@ import logica.Cancion;
 import logica.Genero;
 
 
-public class PanelCancion extends JPanel implements Serializable{
+public class PanelCancion extends JPanel{
 
 	/**
 	 * 

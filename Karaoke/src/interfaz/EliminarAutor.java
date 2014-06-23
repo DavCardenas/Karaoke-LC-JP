@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 import logica.Autor;
 import logica.Genero;
 
-public class EliminarAutor extends JDialog implements ItemListener, Serializable{
+public class EliminarAutor extends JDialog implements ItemListener{
 
 	/**
 	 * 

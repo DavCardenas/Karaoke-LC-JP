@@ -23,7 +23,7 @@ import javax.swing.event.ListSelectionListener;
 import logica.Autor;
 import logica.Genero;
 
-public class PanelArtista extends JPanel implements ListSelectionListener, Serializable{
+public class PanelArtista extends JPanel implements ListSelectionListener{
 	
 	/**
 	 * 

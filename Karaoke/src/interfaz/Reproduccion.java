@@ -22,7 +22,7 @@ import logica.Autor;
 import logica.Cancion;
 import logica.Genero;
 
-public class Reproduccion extends JDialog implements ItemListener,Serializable{
+public class Reproduccion extends JDialog implements ItemListener{
 
 	/**
 	 * 

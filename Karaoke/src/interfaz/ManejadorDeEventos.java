@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 import logica.Karaoke;
 
-public class ManejadorDeEventos implements ActionListener,Serializable {
+public class ManejadorDeEventos implements ActionListener {
 
 	/**
 	 * 

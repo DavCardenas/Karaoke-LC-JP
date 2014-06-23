@@ -28,7 +28,7 @@ import javax.swing.border.Border;
  *
  * 
  */
-public class JDialogAbout extends JDialog implements Serializable{
+public class JDialogAbout extends JDialog{
  
     /**
 	 * 

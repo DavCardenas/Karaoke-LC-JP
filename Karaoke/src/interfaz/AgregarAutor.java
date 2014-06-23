@@ -24,7 +24,7 @@ import javax.swing.JTextField;
 import logica.Autor;
 import logica.Genero;
 
-public class AgregarAutor extends JDialog  implements Serializable{
+public class AgregarAutor extends JDialog{
 
 	/**
 	 * 

@@ -24,7 +24,7 @@ import logica.Autor;
 import logica.Genero;
 
 
-public class PanelGeneros extends JPanel implements ListSelectionListener,Serializable{
+public class PanelGeneros extends JPanel implements ListSelectionListener{
 
 	/**
 	 * 

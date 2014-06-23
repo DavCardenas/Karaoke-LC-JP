@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 
 import logica.Cancion;
 
-public class Visualizacion extends JDialog implements Runnable, Serializable{
+public class Visualizacion extends JDialog implements Runnable{
 	/**
 	 * 
 	 */

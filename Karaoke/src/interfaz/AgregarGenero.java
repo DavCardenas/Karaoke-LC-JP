@@ -24,7 +24,7 @@ import javax.swing.UIManager;
 
 import logica.Genero;
 
-public class AgregarGenero extends JDialog implements Serializable{
+public class AgregarGenero extends JDialog{
 
 	/**
 	 * 
